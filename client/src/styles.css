@@ -1,0 +1,24 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~materialize-css/dist/css/materialize.min.css";
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  outline: none;
+}
+/*font awesome icons*/
+.fas {
+  color: #ffffff;
+}
+/*materialize grid*/
+.row {
+  margin-bottom: unset;
+}
+
+* {
+  font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
+  color: #000000;
+}

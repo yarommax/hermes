@@ -1,0 +1,127 @@
+<header>
+  <div class="header-wrapper">
+      <div class="header-navbar">
+          <div class="container">
+              <div class="row">
+                  <div class="header-logo col s2">
+                    <a routerLink="/">
+                      <i class="fas fa-shipping-fast"></i>
+                      Freight
+                    </a>
+                  </div>
+
+                  <ul class="col s7">
+                    <li>
+                      <a href="">Service</a>
+                    </li>
+                    <li>
+                      <a href="">About us</a>
+                    </li>
+                    <li>
+                      <a href="">Contacts</a>
+                    </li>
+                    <li>
+                      <a href="">Benefits</a>
+                    </li>
+                  </ul>
+                  <ul class="col s3 push-l2">
+                    <li routerLinkActive="active">
+                      <div class="login-button">
+                        <i class="fas fa-user-circle"></i>
+                        <a routerLink="/login">Log in</a>
+                      </div>
+                    </li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </div>
+</header>
+
+<main>
+  <section>
+    <div class="sub-menu">
+      <div class="row">
+        <div class="col s12">
+
+          <ul class="center-align">
+            <li *ngFor="let link of links" routerLinkActive="active"
+                class="waves-effect waves-green"
+            >
+              <a [routerLink]="[link.url]"
+              >{{link.name}}</a>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </section>
+
+<!--  <section class="main-section">-->
+<!--      <div class="container">-->
+<!--          <div class="row">-->
+<!--              <div class="col s4">-->
+<!--                <h2>Freight service for Belarussian users</h2>-->
+<!--              </div>-->
+<!--              <div class="col s8">-->
+<!--                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non sed harum reprehenderit totam exercitationem natus, accusamus tenetur deleniti placeat suscipit veniam aliquid porro sunt obcaecati voluptate fugit itaque a quia, hic at in! Labore molestias deleniti ex aliquid in tempora, voluptates non obcaecati excepturi velit optio dolores. Veritatis, laudantium dignissimos.</p>-->
+<!--              </div>-->
+<!--          </div>-->
+<!--      </div>-->
+<!--  </section>-->
+</main>
+
+
+<footer>
+  <div class="container">
+    <div class="footer-menu-block">
+      <div class="row">
+
+        <div class="col s6">
+          <ul class="footer-menu-list">
+            <li class="name">About Us</li>
+            <li><a href="">Who we are</a></li>
+            <li><a href="">Contacts</a></li>
+          </ul>
+        </div>
+
+        <div class="col s6">
+          <ul class="footer-menu-list">
+            <li class="name">For partners</li>
+            <li><a href="">Ipsum dolor sit amet.</a></li>
+            <li><a href="">Lorem ipsum dolor.</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+    <div class="footer-bottom-block">
+      <div class="row">
+        <div class="footer-line"></div>
+        <div class="footer-contacts">
+          <div class="col s2">
+            <i class="fas fa-phone-square"></i>
+            <p class="contact">0870 7401503</p>
+          </div>
+          <div class="col s4">
+            <i class="fas fa-map-marker-alt"></i>
+            <p class="contact">19 Brandon St, London, SE17 1NA </p>
+          </div>
+          <div class="col s3">
+            <i class="fas fa-envelope"></i>
+            <p class="contact">freight@fr.com</p>
+          </div>
+          <div class="col s3">
+            <i class="fas fa-copyright"></i>
+            <p class="contact copyright">"FREIGHT". 2019. ALL RIGHTS RESERVED</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

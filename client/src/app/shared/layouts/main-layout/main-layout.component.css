@@ -1,0 +1,148 @@
+/* header */
+.header-logo {
+  color: #ffffff;
+  display: block;
+  padding: 14px 0;
+  font-size: 20px;
+}
+
+.header-logo a {
+  color: #ffffff;
+}
+
+.header-navbar {
+    background-color: #333;
+}
+
+.header-navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.header-navbar li {
+    float: left;
+    border-bottom: 4px solid transparent;
+}
+
+.header-navbar li:hover {
+    background-color: #1a1a1a;
+    border-bottom: 4px solid #37b256;
+}
+
+.header-navbar ul a {
+    font-size: 15px;
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 18px 16px 14px 16px;
+    text-decoration: none;
+}
+
+.header-navbar ul a:hover {
+  color: #37b256;
+}
+
+/* main */
+.sub-menu {
+  border-bottom: 1px solid #888888;
+}
+
+.sub-menu ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.sub-menu li {
+  display: inline-block;
+  padding: 10px 25px;
+}
+
+.sub-menu li:hover {
+  background-color: #e7e7e7;
+}
+
+.sub-menu a {
+  color: black;
+  font-size: 13px;
+}
+
+.sub-menu i {
+  color: black;
+  font-size: 16px;
+  padding-right: 5px;
+}
+
+.login-button {
+  padding-left: 15px;
+}
+.login-button i {
+  position: absolute;
+  left: 6px;
+  top: 19px;
+  font-size: 20px;
+}
+
+
+
+/*content*/
+
+
+/* footer */
+footer {
+    background-color: rgb(49, 49, 49);
+    font-size: 14px;
+}
+
+.footer-menu-block {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.footer-menu-list {
+  margin-top: unset;
+}
+
+.footer-menu-list .name {
+  color: #777777;
+  font-size: 22px;
+  padding-bottom: 14px;
+}
+
+.footer-menu-list li {
+  margin-bottom: 10px;
+}
+
+.footer-menu-list li a {
+  color: #ffffff;
+  transition: 0.3s ease;
+}
+
+.footer-menu-list li a:hover {
+  color: #37b256;
+  transition: 0.3s ease;
+}
+
+.footer-line {
+  padding-top: 30px;
+  border-top: 3px dotted #585858;
+}
+
+.footer-contacts i {
+  font-size: 25px;
+  color: #37b256;
+}
+
+.contact {
+  font-size: 16px;
+  display: inline-block;
+  padding-left: 10px;
+  text-align: center;
+  color: #ffffff;
+}
+.copyright {
+  font-size: 13px;
+}

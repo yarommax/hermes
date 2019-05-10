@@ -1,0 +1,9 @@
+.card {
+  width: 400px;
+}
+
+
+.token {
+  width: 400px;
+  word-wrap: break-word;
+}
