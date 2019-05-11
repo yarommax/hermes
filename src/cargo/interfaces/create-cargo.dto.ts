@@ -1,8 +1,12 @@
 import { ApiModelProperty } from '@nestjs/swagger';
-export class CreateTransportDto {
+export class CreateCargoDto {
+
   // time and place
   @ApiModelProperty()
-  readonly loadingDate: Date;
+  readonly startLoadingDate: Date;
+
+  @ApiModelProperty()
+  readonly endLoadingDate: Date;
 
   @ApiModelProperty()
   readonly dischargeDate: Date;
@@ -13,17 +17,23 @@ export class CreateTransportDto {
   @ApiModelProperty()
   readonly dischargePoint: string;
 
-    // Type of transport
+  // Type of cargo
+  @ApiModelProperty()
+  readonly typeCargo: string;
+
+  @ApiModelProperty()
+  readonly cargoWeight: number;
+
+  @ApiModelProperty()
+  readonly cargoVolume: number;
+
   @ApiModelProperty()
   readonly typeTransport: string;
 
   @ApiModelProperty()
   readonly amountTransport: number;
 
-  @ApiModelProperty()
-  readonly loadCapacity: number;
-
-    // company contacts
+  // company contacts
   @ApiModelProperty()
   readonly companyName: string;
 

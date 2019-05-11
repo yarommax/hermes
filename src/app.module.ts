@@ -5,6 +5,7 @@ import { ConfigModule, ConfigService } from 'nestjs-config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AuthModule } from './auth/auth.module';
 import { TransportModule } from './transport/transport.module';
+import { CargoModule } from './cargo/cargo.module';
 import * as path from 'path';
 
 @Module({
@@ -19,6 +20,7 @@ import * as path from 'path';
     }),
     AuthModule,
     TransportModule,
+    CargoModule,
   ],
   controllers: [AppController],
   providers: [AppService],
