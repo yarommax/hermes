@@ -58,7 +58,6 @@
 
 .sub-menu li {
   display: inline-block;
-  padding: 10px 25px;
 }
 
 .sub-menu li:hover {
@@ -66,8 +65,10 @@
 }
 
 .sub-menu a {
+  display: block;
   color: black;
   font-size: 13px;
+  padding: 10px 25px;
 }
 
 .sub-menu i {

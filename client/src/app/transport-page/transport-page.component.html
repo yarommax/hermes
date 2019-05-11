@@ -1,20 +1,85 @@
+<!--<div class="container">-->
+<!--  <div *ngIf="transports; else loader">-->
+<!--    <table class="transport-table">-->
+<!--      <thead>-->
+<!--      <tr>-->
+<!--        <th>Date: loading - discharge</th>-->
+<!--        <th>Location</th>-->
+<!--        <th>Transport</th>-->
+<!--        <th>Contact</th>-->
+<!--      </tr>-->
+<!--      </thead>-->
+
+<!--      <tbody *ngIf="transports.length !==0; else empty">-->
+<!--      <tr *ngFor="let car of transports">-->
+<!--        <td>{{car.dateLoading | date: 'shortDate'}} - {{car.dateDischarge | date: 'shortDate'}}</td>-->
+<!--        <td>{{car.loadingPoint}}; {{car.dischargePoint}}</td>-->
+<!--        <td>{{car.typeTransport}}; {{car.amountTransport}}; {{car.loadCapacity}}</td>-->
+<!--        <td>{{car.companyName}}; {{car.contactPersonName}}; {{car.contactEmail}}; {{car.contactSkype}}; {{car.contactTelephone}}</td>-->
+<!--      </tr>-->
+<!--      </tbody>-->
+<!--      <ng-template #empty>-->
+<!--        <p>You don't have any transport.</p>-->
+<!--      </ng-template>-->
+<!--    </table>-->
+<!--  </div>-->
+<!--  <ng-template #loader>-->
+<!--    <app-loader></app-loader>-->
+<!--  </ng-template>-->
+<!--</div>-->
+
 <div class="container">
-  <div class="row">
-    <div class="col s12 m7">
-      <h2 class="header">Transport Card</h2>
-      <div class="card horizontal">
-        <div class="card-image">
-          <img src="https://lorempixel.com/100/190/nature/6">
+
+  <div class="transport-data-wrapper" *ngIf="transports; else loader">
+
+    <div class="transport-data-table" *ngIf="transports.length !==0; else empty">
+
+      <div class="transport-data-field card-panel hoverable" *ngFor="let car of transports">
+        <div class="transport-card">
+          <p class="table-card-header">
+            <i class="fas fa-calendar-alt"></i> Date</p>
+          <p>Loading: {{car.dateLoading | date: 'shortDate'}}</p>
+          <p>Discharge: {{car.dateDischarge | date: 'shortDate'}}</p>
         </div>
-        <div class="card-stacked">
-          <div class="card-content">
-            <p>I am a very simple card. I am good at containing small bits of information.</p>
-          </div>
-          <div class="card-action">
-            <a href="#">This is a link</a>
-          </div>
+
+        <div class="transport-card">
+          <p class="table-card-header">
+            <i class="fas fa-map-marked-alt"></i> Location: </p>
+          <p>Loading point: {{car.loadingPoint}}</p>
+          <p>Discharge point: {{car.dischargePoint}}</p>
         </div>
+
+        <div class="transport-card">
+          <p class="table-card-header">
+            <i class="fas fa-truck-moving"></i> Transport type: </p>
+          <p>Transport type: {{car.typeTransport}}</p>
+          <p>Amount of cars: {{car.amountTransport}}</p>
+          <p>Load capacity(ton): {{car.loadCapacity}}</p>
+        </div>
+
+        <div class="transport-card">
+          <p class="table-card-header">
+            <i class="fas fa-info-circle"></i> Company: </p>
+          <p>Company: {{car.companyName}}</p>
+          <p>Contact person: {{car.contactPersonName}}</p>
+          <p>Email: {{car.contactEmail}}</p>
+          <p>Skype: {{car.contactSkype}}</p>
+          <p>Telephone number: {{car.contactTelephone}}</p>
+        </div>
+
       </div>
+
     </div>
+
+      <ng-template #empty>
+        <p>You don't have any transport.</p>
+      </ng-template>
   </div>
+
+
+
+  <ng-template #loader>
+    <app-loader></app-loader>
+  </ng-template>
 </div>
+

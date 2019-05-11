@@ -13,6 +13,7 @@ import { AuthLayoutComponent } from './shared/layouts/auth-layout/auth-layout.co
 import { OverviewPageComponent } from './overview-page/overview-page.component';
 import { TokenInterceptor } from './shared/etc/token.interceptor';
 import { CargoPageComponent } from './cargo-page/cargo-page.component';
+import { LoaderComponent } from './shared/component/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { CargoPageComponent } from './cargo-page/cargo-page.component';
     AuthLayoutComponent,
     OverviewPageComponent,
     CargoPageComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,

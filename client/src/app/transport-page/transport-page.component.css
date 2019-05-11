@@ -1,0 +1,26 @@
+.fas {
+  color: black;
+}
+
+.transport-data-table {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.transport-data-field {
+  margin: 15px 0px;
+}
+
+.transport-card {
+  display: inline-block;
+  border: 1px solid #e7e7e7;
+  padding: 10px;
+  font-size: 12px;
+}
+
+.table-card-header {
+  font-size: 15px;
+  font-weight: bold;
+}
+
