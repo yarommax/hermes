@@ -9,6 +9,6 @@ import { TransportSchema } from './interfaces';
     MongooseModule.forFeature([{ name: 'Transport', schema: TransportSchema }]),
   ],
   controllers: [TransportController],
-  providers: [TransportService]
+  providers: [TransportService],
 })
 export class TransportModule {}
