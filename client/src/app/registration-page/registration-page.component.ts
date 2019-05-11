@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../shared/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registration-page',
@@ -9,7 +10,8 @@ import { AuthService } from '../shared/services/auth.service';
 })
 export class RegistrationPageComponent implements OnInit {
   form: FormGroup;
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService,
+              private router: Router) { }
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -38,7 +40,10 @@ export class RegistrationPageComponent implements OnInit {
         (error) => {
           console.log(error);
         },
-        () => this.form.enable(),
+        () => {
+          this.form.enable();
+          this.router.navigate(['/login']);
+        },
       );
   }
 

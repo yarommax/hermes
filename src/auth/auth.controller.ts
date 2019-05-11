@@ -4,7 +4,7 @@ import {
   Controller,
   ForbiddenException, Get,
   NotFoundException,
-  Post,
+  Post, Req,
   Res, UseGuards,
 } from '@nestjs/common';
 import {
@@ -67,9 +67,9 @@ export class AuthController {
   }
 
   @ApiBearerAuth()
-  @Get('/data')
+  @Get('/user')
   @UseGuards(AuthGuard())
-  getData() {
-    return 'ok';
+  getUserFromReq(@Req() req) {
+    return req.user;
   }
 }

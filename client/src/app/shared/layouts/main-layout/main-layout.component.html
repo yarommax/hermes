@@ -5,8 +5,7 @@
               <div class="row">
                   <div class="header-logo col s2">
                     <a routerLink="/">
-                      <i class="fas fa-shipping-fast"></i>
-                      Freight
+                      Cargo<i class="fas fa-shipping-fast"></i>Market
                     </a>
                   </div>
 
@@ -28,7 +27,9 @@
                     <li routerLinkActive="active">
                       <div class="login-button">
                         <i class="fas fa-user-circle"></i>
-                        <a routerLink="/login">Log in</a>
+                        <a *ngIf="currentUser; else login"
+                           routerLink="/login"
+                        >{{currentUser.username}}</a>
                       </div>
                     </li>
                   </ul>
@@ -61,19 +62,6 @@
       <router-outlet></router-outlet>
     </div>
   </section>
-
-<!--  <section class="main-section">-->
-<!--      <div class="container">-->
-<!--          <div class="row">-->
-<!--              <div class="col s4">-->
-<!--                <h2>Freight service for Belarussian users</h2>-->
-<!--              </div>-->
-<!--              <div class="col s8">-->
-<!--                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non sed harum reprehenderit totam exercitationem natus, accusamus tenetur deleniti placeat suscipit veniam aliquid porro sunt obcaecati voluptate fugit itaque a quia, hic at in! Labore molestias deleniti ex aliquid in tempora, voluptates non obcaecati excepturi velit optio dolores. Veritatis, laudantium dignissimos.</p>-->
-<!--              </div>-->
-<!--          </div>-->
-<!--      </div>-->
-<!--  </section>-->
 </main>
 
 
@@ -114,10 +102,15 @@
           </div>
           <div class="col s4">
             <i class="fas fa-envelope"></i>
-            <p class="contact">freight@fr.com</p>
+            <p class="contact">cargomarket@carmar.com</p>
           </div>
         </div>
       </div>
     </div>
   </div>
 </footer>
+
+
+<ng-template #login>
+  <a routerLink="/login">Login</a>
+</ng-template>

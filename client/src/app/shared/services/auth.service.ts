@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { CreateUser, User } from '../interfaces';
+import { User } from '../interfaces';
 
 @Injectable({
   providedIn: 'root',
@@ -12,8 +12,8 @@ export class AuthService {
 
   constructor(private httpClient: HttpClient) {}
 
-  register(body: CreateUser): Observable<CreateUser> {
-    return this.httpClient.post<CreateUser>('api/auth/registration', body);
+  register(body: User): Observable<User> {
+    return this.httpClient.post<User>('api/auth/registration', body);
   }
 
   login(body: User): Observable<{token: string}> {
@@ -26,6 +26,10 @@ export class AuthService {
           },
         ),
       );
+  }
+
+  getUserFromRequest() {
+    return this.httpClient.get('api/auth/user');
   }
 
   setToken(token: string): void {

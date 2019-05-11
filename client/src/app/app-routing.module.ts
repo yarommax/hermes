@@ -13,12 +13,11 @@ const routes: Routes = [
   {
     path: '',
     component: MainLayoutComponent,
-    canActivate: [AuthGuard],
     children: [
       { path: '', redirectTo: '/overview' , pathMatch: 'full' },
       { path: 'overview', component: OverviewPageComponent },
-      { path: 'transport', component: TransportPageComponent },
-      { path: 'cargo', component: CargoPageComponent },
+      { path: 'transport', canActivate: [AuthGuard], component: TransportPageComponent },
+      { path: 'cargo', canActivate: [AuthGuard], component: CargoPageComponent },
     ],
   },
   {

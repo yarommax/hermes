@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../../interfaces';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-main-layout',
@@ -11,10 +13,21 @@ export class MainLayoutComponent implements OnInit {
     { url: '/transport', name: 'List of transport' },
     { url: '/cargo', name: 'List of load' },
   ];
+  currentUser: User;
 
-  constructor() { }
+  constructor(private readonly authService: AuthService) { }
 
   ngOnInit() {
+    this.getUserFromReq();
   }
 
+  getUserFromReq() {
+    if (this.authService.isAuthenticated()) {
+      let user$;
+      user$ = this.authService.getUserFromRequest();
+      user$.subscribe( user => {
+        this.currentUser = user;
+      });
+    }
+  }
 }
