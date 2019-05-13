@@ -8,6 +8,7 @@ import { TransportPageComponent } from './transport-page/transport-page.componen
 import { OverviewPageComponent } from './overview-page/overview-page.component';
 import { AuthGuard } from './shared/etc/auth.guard';
 import { CargoPageComponent } from './cargo-page/cargo-page.component';
+import { TransportFormComponent } from './transport-page/transport-form/transport-form.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,7 @@ const routes: Routes = [
       { path: '', redirectTo: '/overview' , pathMatch: 'full' },
       { path: 'overview', component: OverviewPageComponent },
       { path: 'transport', canActivate: [AuthGuard], component: TransportPageComponent },
+      { path: 'transport/new', canActivate: [AuthGuard], component: TransportFormComponent },
       { path: 'cargo', canActivate: [AuthGuard], component: CargoPageComponent },
     ],
   },

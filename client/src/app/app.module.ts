@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { RegistrationPageComponent } from './registration-page/registration-page.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { MainLayoutComponent } from './shared/layouts/main-layout/main-layout.component';
 import { AccountLayoutComponent } from './shared/layouts/account-layout/account-layout.component';
@@ -14,6 +14,7 @@ import { OverviewPageComponent } from './overview-page/overview-page.component';
 import { TokenInterceptor } from './shared/etc/token.interceptor';
 import { CargoPageComponent } from './cargo-page/cargo-page.component';
 import { LoaderComponent } from './shared/component/loader/loader.component';
+import { TransportFormComponent } from './transport-page/transport-form/transport-form.component';
 
 @NgModule({
   declarations: [
@@ -27,11 +28,13 @@ import { LoaderComponent } from './shared/component/loader/loader.component';
     OverviewPageComponent,
     CargoPageComponent,
     LoaderComponent,
+    TransportFormComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     ReactiveFormsModule,
   ],
   providers: [

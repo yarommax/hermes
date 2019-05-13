@@ -11,6 +11,7 @@ export class MainLayoutComponent implements OnInit {
 
   links = [
     { url: '/transport', name: 'List of transport' },
+    { url: '/transport/new', name: 'Add a transport' },
     { url: '/cargo', name: 'List of load' },
   ];
   currentUser: User;
@@ -25,7 +26,7 @@ export class MainLayoutComponent implements OnInit {
     if (this.authService.isAuthenticated()) {
       let user$;
       user$ = this.authService.getUserFromRequest();
-      user$.subscribe( user => {
+      user$.subscribe((user) => {
         this.currentUser = user;
       });
     }

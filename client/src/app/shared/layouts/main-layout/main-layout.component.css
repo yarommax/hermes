@@ -62,6 +62,7 @@
 
 .sub-menu li:hover {
   background-color: #e7e7e7;
+  /*background-color: #37b256;*/
 }
 
 .sub-menu a {
@@ -129,7 +130,7 @@ footer {
 
 .footer-line {
   padding-top: 30px;
-  border-top: 3px dotted #585858;
+  border-top: 2px solid white;
 }
 
 .footer-contacts i {

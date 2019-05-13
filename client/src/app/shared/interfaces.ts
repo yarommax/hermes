@@ -6,8 +6,8 @@ export interface User {
 
 export interface Transport {
   // time and place
-  dateLoading: Date;
-  dateDischarge: Date;
+  loadingDate: Date;
+  dischargeDate: Date;
   loadingPoint: string;
   dischargePoint: string;
 

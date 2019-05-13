@@ -1,0 +1,44 @@
+/* page title*/
+.page-title {
+  padding: 15px;
+}
+
+/*input fields*/
+.input-field input {
+  width: 100%;
+}
+
+.transport-form {
+}
+
+.tr-data {
+  padding: 10px;
+  border-right: 1px solid #e7e7e7;
+  min-width: 200px;
+}
+
+.tr-data:last-child {
+  border-right: none;
+}
+
+.type-tr-select {
+  max-height: 350px !important;
+  overflow-y: auto !important;
+  backface-visibility: hidden !important;
+}
+
+
+
+
+/* save transport button*/
+
+.button-group button {
+  margin: 0px 10px;
+}
+
+
+/* Distance between cities */
+
+.distanceMap {
+  width: 100%;
+}
