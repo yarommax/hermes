@@ -4,8 +4,8 @@ import { Schema } from 'mongoose';
 export const TransportSchema = new Schema({
 
 	// Time and Place
-  dateLoading: { type: Date, default: Date.now },
-  dateDischarge: { type: Date, default: Date.now },
+  loadingDate: { type: Date, default: Date.now },
+  dischargeDate: { type: Date, default: Date.now },
   loadingPoint: { type: String },
   dischargePoint: { type: String },
 

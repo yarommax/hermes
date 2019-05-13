@@ -1,0 +1,180 @@
+<div class="container">
+  <div class="page-title">
+    <h5>Create new transport:</h5>
+  </div>
+
+  <div class="card-panel hoverable">
+
+    <form class="transport-form" [formGroup]="form">
+      <div class="row">
+        <div class="col s3">
+
+          <div class="tr-data">
+            <h6 class="bold">Date:</h6>
+            <div class="input-field">
+              <input
+                id="loadingDate"
+                type="text"
+                formControlName="loadingDate"
+                #loadingDate
+                [ngClass]="{'invalid': form.get('loadingDate').invalid
+                && form.get('loadingDate').touched
+                && !isValid}"
+              >
+              <label for="loadingDate">Loading day:</label>
+            </div>
+
+            <div class="input-field">
+              <input
+                id="dischargeDate"
+                type="text"
+                class="datepicker"
+                formControlName="dischargeDate"
+                #dischargeDate
+              >
+              <label for="dischargeDate">Discharge day:</label>
+            </div>
+
+            <h6 class="bold">Location:</h6>
+            <div class="input-field">
+              <input
+                id="loadingPoint"
+                type="text"
+                formControlName="loadingPoint"
+              >
+              <label for="loadingPoint">Loading place:</label>
+            </div>
+            <div class="input-field">
+              <input
+                id="dischargePoint"
+                type="text"
+                formControlName="dischargePoint"
+              >
+              <label for="dischargePoint">Discharge place:</label>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col s3 offset-s1">
+          <div class="tr-data">
+            <h6 class="bold">Transport type:</h6>
+            <div class="input-field">
+              <select
+                #select class="type-tr-select"
+                formControlName="typeTransport"
+              >
+                <option value="" disabled selected>Choose type</option>
+                <option value="1">Тент</option>
+                <option value="2">Автосцепка</option>
+                <option value="3">Автосцепка</option>
+                <option value="4">Рефрижератор</option>
+                <option value="5">Полуприцеп</option>
+                <option value="6">Автовоз</option>
+              </select>
+            </div>
+            <div class="input-field">
+              <input
+                id="amountTransport"
+                type="text"
+                formControlName="amountTransport"
+              >
+              <label for="amountTransport">Amount of cars:</label>
+            </div>
+            <div class="input-field">
+              <input
+                id="loadCapacity"
+                type="text"
+                formControlName="loadCapacity"
+              >
+              <label for="loadCapacity">Load capacity (ton):</label>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col s3 offset-s1">
+          <div class="tr-data">
+            <h6 class="bold">Company contact:</h6>
+            <div class="input-field">
+              <input
+                id="companyName"
+                type="text"
+                formControlName="companyName"
+              >
+              <label for="companyName">Company name:</label>
+            </div>
+
+            <div class="input-field">
+              <input
+                id="contactPersonName"
+                type="text"
+                formControlName="contactPersonName"
+              >
+              <label for="contactPersonName">Contact person:</label>
+            </div>
+
+            <div class="input-field">
+              <input
+                id="contactEmail"
+                type="text"
+                formControlName="contactEmail"
+              >
+              <label for="contactEmail">Email:</label>
+            </div>
+
+            <div class="input-field">
+              <input
+                id="contactSkype"
+                type="text"
+                formControlName="contactSkype"
+              >
+              <label for="contactSkype">Skype:</label>
+            </div>
+
+            <div class="input-field">
+              <input
+                id="contactTelephone"
+                type="text"
+                formControlName="contactTelephone"
+              >
+              <label for="contactTelephone">Telephone number:</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="button-group">
+        <button
+          class="waves-effect waves-light btn"
+          [disabled]="form.invalid || form.disabled"
+          (click)="onSubmit()"
+        >
+          Save changes
+        </button>
+
+        <button
+          class="waves-effect waves-red btn-flat"
+          (click)="resetForm()"
+        >
+          Reset form
+        </button>
+
+        <button
+          class="waves-effect waves-effect btn-flat"
+          (click)="onShowMap()"
+        >
+          Show on the map
+        </button>
+      </div>
+
+    </form>
+
+
+  </div>
+
+  <div class="row" *ngIf="showMap">
+    <div class="col s12">
+      <img class="distanceMap" src="../../../assets/map.png" alt="">
+    </div>
+  </div>
+</div>

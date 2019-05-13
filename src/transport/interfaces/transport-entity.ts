@@ -2,8 +2,8 @@ import { Document } from 'mongoose';
 
 export interface TransportEntity extends Document {
   // time and place
-  dateLoading: Date;
-  dateDischarge: Date;
+  loadingDate: Date;
+  dischargeDate: Date;
   loadingPoint: string;
   readonly dischargePoint: string;
 

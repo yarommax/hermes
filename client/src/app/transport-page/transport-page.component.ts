@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TransportService } from '../shared/services/transport.service';
 import { Transport } from '../shared/interfaces';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-transport-page',
@@ -8,7 +9,8 @@ import { Transport } from '../shared/interfaces';
   styleUrls: ['./transport-page.component.css'],
 })
 export class TransportPageComponent implements OnInit {
-  constructor(private transportService: TransportService) { }
+  constructor(private transportService: TransportService,
+              private router: Router) { }
 
   transports: Transport[];
 
@@ -20,8 +22,13 @@ export class TransportPageComponent implements OnInit {
     let obs$;
     obs$ = this.transportService.fetchTransport();
     obs$
-      .subscribe( response => {
+      .subscribe((response) => {
         this.transports = response;
       });
+  }
+
+  onFieldClick(car) {
+    console.log(car);
+    this.router.navigate(['transport/new']);
   }
 }

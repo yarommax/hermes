@@ -1,33 +1,3 @@
-<!--<div class="container">-->
-<!--  <div *ngIf="transports; else loader">-->
-<!--    <table class="transport-table">-->
-<!--      <thead>-->
-<!--      <tr>-->
-<!--        <th>Date: loading - discharge</th>-->
-<!--        <th>Location</th>-->
-<!--        <th>Transport</th>-->
-<!--        <th>Contact</th>-->
-<!--      </tr>-->
-<!--      </thead>-->
-
-<!--      <tbody *ngIf="transports.length !==0; else empty">-->
-<!--      <tr *ngFor="let car of transports">-->
-<!--        <td>{{car.dateLoading | date: 'shortDate'}} - {{car.dateDischarge | date: 'shortDate'}}</td>-->
-<!--        <td>{{car.loadingPoint}}; {{car.dischargePoint}}</td>-->
-<!--        <td>{{car.typeTransport}}; {{car.amountTransport}}; {{car.loadCapacity}}</td>-->
-<!--        <td>{{car.companyName}}; {{car.contactPersonName}}; {{car.contactEmail}}; {{car.contactSkype}}; {{car.contactTelephone}}</td>-->
-<!--      </tr>-->
-<!--      </tbody>-->
-<!--      <ng-template #empty>-->
-<!--        <p>You don't have any transport.</p>-->
-<!--      </ng-template>-->
-<!--    </table>-->
-<!--  </div>-->
-<!--  <ng-template #loader>-->
-<!--    <app-loader></app-loader>-->
-<!--  </ng-template>-->
-<!--</div>-->
-
 <div class="container">
 
   <div class="transport-data-wrapper" *ngIf="transports; else loader">
@@ -36,35 +6,54 @@
 
       <div class="transport-data-field card-panel hoverable" *ngFor="let car of transports">
         <div class="transport-card">
-          <p class="table-card-header">
-            <i class="fas fa-calendar-alt"></i> Date</p>
-          <p>Loading: {{car.dateLoading | date: 'shortDate'}}</p>
-          <p>Discharge: {{car.dateDischarge | date: 'shortDate'}}</p>
+          <h6>
+            <i class="fas fa-calendar-alt"></i>
+            Date
+          </h6>
+          <p>Loading: <br>
+            <span class="bold">{{car.loadingDate | date: 'shortDate'}}</span>
+          </p>
+          <p>Discharge: <br>
+            <span class="bold">{{car.dischargeDate | date: 'shortDate'}}</span>
+          </p>
         </div>
 
         <div class="transport-card">
-          <p class="table-card-header">
-            <i class="fas fa-map-marked-alt"></i> Location: </p>
-          <p>Loading point: {{car.loadingPoint}}</p>
-          <p>Discharge point: {{car.dischargePoint}}</p>
+          <h6>
+            <i class="fas fa-map-marked-alt"></i> Location:
+          </h6>
+          <p>Loading point: <br>
+            <span class="bold">{{car.loadingPoint}}</span>
+          </p>
+          <p>Discharge point: <br>
+            <span class="bold">{{car.dischargePoint}}</span>
+          </p>
         </div>
 
         <div class="transport-card">
-          <p class="table-card-header">
-            <i class="fas fa-truck-moving"></i> Transport type: </p>
-          <p>Transport type: {{car.typeTransport}}</p>
-          <p>Amount of cars: {{car.amountTransport}}</p>
-          <p>Load capacity(ton): {{car.loadCapacity}}</p>
+          <h6>
+            <i class="fas fa-truck-moving"></i> Transport type:
+          </h6>
+          <p>Transport type: <br>
+            <span class="bold">{{car.typeTransport}}</span>
+          </p>
+          <p>Amount of cars: <br>
+            <span class="bold">{{car.amountTransport}}</span>
+          </p>
+          <p>Load capacity(ton): <br>
+            <span class="bold">{{car.loadCapacity}}</span>
+          </p>
         </div>
 
         <div class="transport-card">
-          <p class="table-card-header">
-            <i class="fas fa-info-circle"></i> Company: </p>
-          <p>Company: {{car.companyName}}</p>
-          <p>Contact person: {{car.contactPersonName}}</p>
-          <p>Email: {{car.contactEmail}}</p>
-          <p>Skype: {{car.contactSkype}}</p>
-          <p>Telephone number: {{car.contactTelephone}}</p>
+          <h6>
+            <i class="fas fa-info-circle"></i> Company info:
+          </h6>
+          <p>Company: <span class="bold">{{car.companyName}}</span></p>
+          <p>Contact person: <span class="bold">{{car.contactPersonName}}</span></p>
+          <p>Email: <span class="bold">{{car.contactEmail}}</span></p>
+          <p>Skype: <span class="bold">{{car.contactSkype}}</span></p>
+          <p>Telephone: <span class="bold">{{car.contactTelephone}}</span></p>
         </div>
 
       </div>
