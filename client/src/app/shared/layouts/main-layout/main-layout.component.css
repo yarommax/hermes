@@ -9,6 +9,9 @@
 .header-logo a {
   color: #ffffff;
 }
+.fa-shipping-fast {
+  color: white;
+}
 
 .header-navbar {
     background-color: #333;
@@ -78,17 +81,17 @@
   padding-right: 5px;
 }
 
-.login-button {
-  padding-left: 15px;
-}
-.login-button i {
-  position: absolute;
-  left: 6px;
-  top: 19px;
-  font-size: 20px;
+.login-button, .logout-button {
+  display: inline-block;
+  cursor: pointer;
 }
 
-
+.login-button i, .logout-button i{
+  padding-right: 2px;
+  padding-top: 2px;
+  display: inline-block;
+  color: white;
+}
 
 /*content*/
 

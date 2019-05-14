@@ -9,7 +9,7 @@
                     </a>
                   </div>
 
-                  <ul class="col s7">
+                  <ul class="col s6">
                     <li>
                       <a href="">Service</a>
                     </li>
@@ -23,13 +23,21 @@
                       <a href="">Benefits</a>
                     </li>
                   </ul>
-                  <ul class="col s3 push-l2">
+                  <ul class="col s4 push-l2">
                     <li routerLinkActive="active">
                       <div class="login-button">
-                        <i class="fas fa-user-circle"></i>
                         <a *ngIf="currentUser; else login"
-                           routerLink="/login"
-                        >{{currentUser.username}}</a>
+                           routerLink="/account"
+                        ><i class="fas fa-user-circle"></i>
+                          {{currentUser.username}}</a>
+                      </div>
+                    </li>
+                    <li routerLinkActive="active">
+                      <div class="logout-button">
+                        <a *ngIf="currentUser;"
+                           (click)="logout()"
+                        ><i class="fas fa-sign-out-alt"></i>
+                          Logout</a>
                       </div>
                     </li>
                   </ul>

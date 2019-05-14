@@ -15,6 +15,7 @@ import { TokenInterceptor } from './shared/etc/token.interceptor';
 import { CargoPageComponent } from './cargo-page/cargo-page.component';
 import { LoaderComponent } from './shared/component/loader/loader.component';
 import { TransportFormComponent } from './transport-page/transport-form/transport-form.component';
+import { AccountPageComponent } from './account/account-page/account-page.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { TransportFormComponent } from './transport-page/transport-form/transpor
     CargoPageComponent,
     LoaderComponent,
     TransportFormComponent,
+    AccountPageComponent,
   ],
   imports: [
     BrowserModule,

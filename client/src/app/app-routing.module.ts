@@ -9,6 +9,8 @@ import { OverviewPageComponent } from './overview-page/overview-page.component';
 import { AuthGuard } from './shared/etc/auth.guard';
 import { CargoPageComponent } from './cargo-page/cargo-page.component';
 import { TransportFormComponent } from './transport-page/transport-form/transport-form.component';
+import { AccountLayoutComponent } from './shared/layouts/account-layout/account-layout.component';
+import { AccountPageComponent } from './account/account-page/account-page.component';
 
 const routes: Routes = [
   {
@@ -28,6 +30,13 @@ const routes: Routes = [
     children: [
       { path: 'login', component: LoginPageComponent },
       { path: 'register', component: RegistrationPageComponent },
+    ],
+  },
+  {
+    path: '',
+    component: AccountLayoutComponent,
+    children: [
+      { path: 'account', component: AccountPageComponent },
     ],
   },
 ];

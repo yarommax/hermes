@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { User } from '../interfaces';
+import { Router } from '@angular/router';
+import { MaterialService } from '../etc/material.service';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +12,8 @@ import { User } from '../interfaces';
 export class AuthService {
   private token = null;
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient,
+              private router: Router) {}
 
   register(body: User): Observable<User> {
     return this.httpClient.post<User>('api/auth/registration', body);
@@ -45,6 +48,12 @@ export class AuthService {
   }
 
   logout() {
+    this.router.navigate(['/login'], {
+      queryParams: {
+        logout: true,
+      },
+    });
+    MaterialService.toast('Logged out');
     this.setToken(null);
     localStorage.clear();
   }

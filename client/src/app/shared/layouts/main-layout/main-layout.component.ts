@@ -31,4 +31,8 @@ export class MainLayoutComponent implements OnInit {
       });
     }
   }
+
+  logout() {
+    this.authService.logout();
+  }
 }

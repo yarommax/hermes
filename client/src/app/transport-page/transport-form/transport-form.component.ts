@@ -59,14 +59,26 @@ export class TransportFormComponent implements OnInit, AfterViewInit, OnDestroy 
     }
 
     this.isValid = this.loadingDate.date < this.dischargeDate.date;
-    console.log(this.isValid);
   }
 
   onSubmit() {
     this.form.disable();
     let obs$;
-
-    const body = Object.assign({}, this.form.value);
+    const body = {
+      loadingDate: this.loadingDate.date,
+      dischargeDate: this.dischargeDate.date,
+      loadingPoint: this.form.value.loadingPoint,
+      dischargePoint: this.form.value.dischargePoint,
+      typeTransport: this.form.value.typeTransport,
+      amountTransport: this.form.value.amountTransport,
+      loadCapacity: this.form.value.loadCapacity,
+      companyName: this.form.value.companyName,
+      contactPersonName: this.form.value.contactPersonName,
+      contactEmail: this.form.value.contactEmail,
+      contactSkype: this.form.value.contactSkype,
+      contactTelephone: this.form.value.contactTelephone,
+    };
+    console.log(body);
     obs$ = this.transportService.createNewTransport(body);
 
     obs$.subscribe(
