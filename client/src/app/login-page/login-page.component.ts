@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../shared/services/auth.service';
 import { Router } from '@angular/router';
+import { MaterialService } from '../shared/etc/material.service';
 
 @Component({
   selector: 'app-login-page',
@@ -33,13 +34,12 @@ export class LoginPageComponent implements OnInit {
 
     obs$ = this.authService.login(body);
     obs$.subscribe(
-        (response) => {
+        (res) => {
           this.form.reset();
-          this.res = response;
-          console.log(response);
+          MaterialService.toast('Success login!');
         },
         (error) => {
-          console.log(error);
+          MaterialService.toast(error.message);
         },
         () => {
           this.form.enable();

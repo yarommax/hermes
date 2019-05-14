@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../shared/services/auth.service';
 import { Router } from '@angular/router';
+import { MaterialService } from '../shared/etc/material.service';
 
 @Component({
   selector: 'app-registration-page',
@@ -35,10 +36,10 @@ export class RegistrationPageComponent implements OnInit {
     obs$.subscribe(
         (response) => {
           this.form.reset();
-          console.log(response);
+          MaterialService.toast(`Hello ${response.username}! Now you can login in the system`);
         },
         (error) => {
-          console.log(error);
+          MaterialService.toast(error.message);
         },
         () => {
           this.form.enable();

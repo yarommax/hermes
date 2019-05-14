@@ -7,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountLayoutComponent implements OnInit {
 
+  links = [
+    { url: '/history', name: 'History' },
+    { url: '/transport', name: 'My transport' },
+    { url: '/cargo', name: 'My loads' },
+    { url: '/logout', name: 'Logout' },
+  ];
+
   constructor() { }
 
   ngOnInit() {
