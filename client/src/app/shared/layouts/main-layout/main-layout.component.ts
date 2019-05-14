@@ -13,6 +13,7 @@ export class MainLayoutComponent implements OnInit {
     { url: '/transport', name: 'List of transport' },
     { url: '/transport/new', name: 'Add a transport' },
     { url: '/cargo', name: 'List of load' },
+    { url: '/cargo/new', name: 'Add a cargo' },
   ];
   currentUser: User;
 

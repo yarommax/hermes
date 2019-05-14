@@ -1,10 +1,72 @@
+.auth-wrapper {
+  height: 100vh;
+}
+
 .auth-block {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 50px;
+  width: 100%;
+  height: calc(100vh - 355px);
 }
 
 .fa-shipping-fast {
   color: white;
+  padding-left: 15px;
+}
+
+
+
+/* footer */
+
+footer {
+  background-color: rgb(49, 49, 49);
+  font-size: 14px;
+}
+
+.footer-menu-block {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.footer-menu-list {
+  margin-top: unset;
+}
+
+.footer-menu-list .name {
+  color: #777777;
+  font-size: 22px;
+  padding-bottom: 14px;
+}
+
+.footer-menu-list li {
+  margin-bottom: 10px;
+}
+
+.footer-menu-list li a {
+  color: #ffffff;
+  transition: 0.3s ease;
+}
+
+.footer-menu-list li a:hover {
+  color: #37b256;
+  transition: 0.3s ease;
+}
+
+.footer-line {
+  padding-top: 30px;
+  border-top: 2px solid white;
+}
+
+.footer-contacts i {
+  font-size: 25px;
+  color: #37b256;
+}
+
+.contact {
+  font-size: 16px;
+  display: inline-block;
+  padding-left: 10px;
+  text-align: center;
+  color: #ffffff;
 }
