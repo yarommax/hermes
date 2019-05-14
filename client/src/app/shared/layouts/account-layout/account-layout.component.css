@@ -1,8 +1,19 @@
-.has-fixed-sidenav {
-  padding-left: 300px;
+.fa-shipping-fast {
+  padding-left: 15px;
+  color: white;
 }
 
-.has-fixed-sidenav>nav {
-  width: calc(100% - 300px);
-  left: 300px;
+/* setting user account menu dropdown*/
+.dropdown-content {
+  width: 200px;
+}
+.dropdown-content a {
+  width: 200px;
+  color: black!important;
+}
+
+
+.background img {
+  width: 100%;
+  background-position: center;
 }

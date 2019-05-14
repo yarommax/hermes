@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { MaterialDropdown, MaterialService, MaterialSidenav } from '../../etc/material.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-account-layout',
   templateUrl: './account-layout.component.html',
   styleUrls: ['./account-layout.component.css'],
 })
-export class AccountLayoutComponent implements OnInit {
+export class AccountLayoutComponent implements OnInit, AfterViewInit {
 
   links = [
     { url: '/history', name: 'History' },
@@ -14,9 +16,27 @@ export class AccountLayoutComponent implements OnInit {
     { url: '/logout', name: 'Logout' },
   ];
 
-  constructor() { }
+  @ViewChild('dropdown') dropdownRef: ElementRef;
+  dropdown: MaterialDropdown;
+  @ViewChild('sidenav') sidenavRef: ElementRef;
+  sidenav: MaterialSidenav;
+
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
+  }
+
+  ngAfterViewInit() {
+    MaterialService.initDropdown(this.dropdownRef, {
+      coverTrigger: false,
+      constrainWidth: false,
+
+    });
+    MaterialService.initSidenav(this.sidenavRef);
+  }
+
+  logout() {
+    this.authService.logout();
   }
 
 }

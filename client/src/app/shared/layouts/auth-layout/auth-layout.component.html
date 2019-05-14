@@ -1,20 +1,67 @@
-<nav>
-  <div class="nav-wrapper grey darken-4">
-    <a routerLink="/" class="brand-logo">Cargo<i class="fas fa-shipping-fast"></i>Market</a>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <!-- если страница совпадает с url то добавляется класс active-->
-      <li routerLinkActive="active">
-        <a routerLink="/login">Login</a>
-      </li>
-      <li routerLinkActive="active">
-        <a routerLink="/register">Registration</a>
-      </li>
-    </ul>
-  </div>
-</nav>
+<div class="auth-wrapper">
+  <nav>
+    <div class="nav-wrapper grey darken-4">
+      <a routerLink="/" class="brand-logo">Cargo<i class="fas fa-shipping-fast"></i>Market</a>
+      <ul id="nav-mobile" class="right">
+        <!-- если страница совпадает с url то добавляется класс active-->
+        <li routerLinkActive="active">
+          <a routerLink="/login">Login</a>
+        </li>
+        <li routerLinkActive="active">
+          <a routerLink="/register">Registration</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
 
-<div class="auth-block">
+  <div class="auth-block">
+
     <router-outlet></router-outlet>
-</div>
+  </div>
 
+  <footer>
+    <div class="container">
+      <div class="footer-menu-block">
+        <div class="row">
+
+          <div class="col s6">
+            <ul class="footer-menu-list">
+              <li class="name">About Us</li>
+              <li><a href="">Who we are</a></li>
+              <li><a href="">Contacts</a></li>
+            </ul>
+          </div>
+
+          <div class="col s6">
+            <ul class="footer-menu-list">
+              <li class="name">For partners</li>
+              <li><a href="">Ipsum dolor sit amet.</a></li>
+              <li><a href="">Lorem ipsum dolor.</a></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+      <div class="footer-bottom-block">
+        <div class="row">
+          <div class="footer-line" ></div>
+          <div class="footer-contacts">
+            <div class="col s3">
+              <i class="fas fa-phone-square"></i>
+              <p class="contact">0870 7401503</p>
+            </div>
+            <div class="col s5">
+              <i class="fas fa-map-marker-alt"></i>
+              <p class="contact">19 Brandon St, London, SE17 1NA </p>
+            </div>
+            <div class="col s4">
+              <i class="fas fa-envelope"></i>
+              <p class="contact">cargomarket@carmar.com</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>

@@ -19,9 +19,9 @@
         class="helper-text red-text"
         *ngIf="form.get('email').invalid && form.get('email').touched"
       >
-                <span *ngIf="form.get('email').errors['required']">Email is required.</span>
-                <span *ngIf="form.get('email').errors['email']">Enter the correct email.</span>
-            </span>
+          <span *ngIf="form.get('email').errors['required']">Email is required.</span>
+          <span *ngIf="form.get('email').errors['email']">Enter the correct email.</span>
+      </span>
     </div>
 
     <div class="input-field">
