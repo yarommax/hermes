@@ -1,8 +1,18 @@
-.fa-shipping-fast {
-  padding-left: 15px;
-  color: white;
+@media only screen and (min-width: 993px) {
+  .navbar
+  {
+    padding-left: 300px;
+  }
 }
 
+
+.fa-shipping-fast {
+  color: white;
+  margin: unset;
+}
+.navbar {
+
+}
 /* setting user account menu dropdown*/
 .dropdown-content {
   width: 200px;
@@ -12,8 +22,39 @@
   color: black!important;
 }
 
+/* sidenav */
+.brand-logo{
+  color:#fff;
+  display: block;
+  height: 64px;
+  font-size: 25px;
+  text-align: center;
+  padding-top: 8px;
+}
 
-.background img {
-  width: 100%;
-  background-position: center;
+.sidenav {
+  background-color: #2d3035;
+}
+
+
+.sidenav-header {
+  background-color: #222222;
+  margin-bottom: 50px;
+}
+
+.sidenav a{
+  color: white;
+}
+
+.sidenav-item {
+  border-left: 3px solid transparent;
+}
+.sidenav-item i {
+  color: white;
+  font-size: 25px;
+  margin-right: 15px;
+}
+.sidenav-item:hover {
+  border-left: 3px solid #37b256;
+  background-color: #222222;
 }

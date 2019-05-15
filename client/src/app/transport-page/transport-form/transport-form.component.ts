@@ -78,7 +78,6 @@ export class TransportFormComponent implements OnInit, AfterViewInit, OnDestroy 
       contactSkype: this.form.value.contactSkype,
       contactTelephone: this.form.value.contactTelephone,
     };
-    console.log(body);
     obs$ = this.transportService.createNewTransport(body);
 
     obs$.subscribe(

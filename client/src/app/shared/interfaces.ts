@@ -22,6 +22,10 @@ export interface Transport {
   contactEmail: string;
   contactSkype: string;
   contactTelephone: string;
+
+  timeStamp?: string;
+  userStamp?: string;
+  userId?: string;
 }
 
 export interface Cargo {

@@ -18,4 +18,9 @@ export interface TransportEntity extends Document {
   contactEmail: string;
   contactSkype: string;
   contactTelephone: string;
+
+  // stamp
+  timeStamp: Date;
+  userStamp: string;
+  userId: string;
 }

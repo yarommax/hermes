@@ -9,23 +9,28 @@
 }
 
 .transport-data-table {
-  flex-direction: column;
+  display: flex;
+  flex-direction: row;
   margin-top: 15px;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .transport-data-field {
-  display: inline-flex;
-  margin: 10px;
-  padding: 20px;
+  margin: 10px 30px 10px 30px;
+  padding: 20px 20px 10px 20px;
 }
-
+.main-info {
+  overflow:hidden;
+}
 .transport-card {
-  flex-direction: row;
+  display: inline-block;
   border: 1px solid #e7e7e7;
   padding: 10px;
   font-size: 12px;
+  float: left;
+  height: 200px;
 }
 
 .transport-card h6 {
@@ -35,6 +40,10 @@
 
 .transport-card p {
   font-size: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 180px;
 }
 
 .transport-card .bold {
@@ -45,4 +54,25 @@
 .table-card-header {
   font-size: 16px;
   font-weight: bold;
+}
+.transport-card-stamp {
+  display: block;
+}
+
+.transport-card-stamp p{
+  display: inline-block;
+  margin: 0;
+  padding: 0 5px;
+  font-size: 10px;
+  vertical-align: bottom;
+}
+
+
+
+
+
+/* empty template*/
+.empty-template h4{
+  text-align: center;
+  margin: 50px;
 }

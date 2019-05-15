@@ -21,4 +21,12 @@ export const TransportSchema = new Schema({
   contactEmail: { type: String },
   contactSkype: { type: String },
   contactTelephone: { type: String },
+
+  // stamp
+  timeStamp: { type: Date, default: Date.now },
+  userStamp: { type: String },
+  userId: {
+    ref: 'users',
+    type: Schema.Types.ObjectId,
+  },
 });
