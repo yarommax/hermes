@@ -38,4 +38,10 @@ export class CreateTransportDto {
 
   @ApiModelProperty()
   readonly contactTelephone: string;
+
+  @ApiModelProperty()
+  userStamp?: string;
+
+  @ApiModelProperty()
+  userId?: string;
 }

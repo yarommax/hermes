@@ -36,14 +36,16 @@ export class LoginPageComponent implements OnInit {
     obs$.subscribe(
         (res) => {
           this.form.reset();
+          this.router.navigate(['/overview']);
           MaterialService.toast('Success login!');
         },
         (error) => {
-          MaterialService.toast(error.message);
+          console.log(error);
+          MaterialService.toast(error.error.message);
+          this.form.enable();
         },
         () => {
           this.form.enable();
-          this.router.navigate(['/overview']);
         },
       );
   }

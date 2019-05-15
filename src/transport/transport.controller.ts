@@ -1,7 +1,8 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
+import { Controller, Get, Post, Body, Req, UseGuards } from '@nestjs/common';
 import { ApiOperation, ApiCreatedResponse, ApiUseTags } from '@nestjs/swagger';
 import { CreateTransportDto } from './interfaces';
 import { TransportService } from './transport.service';
+import { AuthGuard } from '@nestjs/passport';
 
 @ApiUseTags('api/transport')
 @Controller('api/transport')
@@ -11,7 +12,10 @@ export class TransportController {
   @ApiOperation({ title: 'Adding new transport' })
   @ApiCreatedResponse({ description: 'Created new transport' })
   @Post('')
-  async createNewTransport(@Body() transport: CreateTransportDto) {
+  @UseGuards(AuthGuard())
+  async createNewTransport(@Body() transport: CreateTransportDto, @Req() req) {
+    transport.userStamp = req.user.username;
+    transport.userId = req.user._id;
     return await this.transportService.createNewTransport(transport);
   }
 

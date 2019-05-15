@@ -1,7 +1,6 @@
-<section style="padding-left: 300px;">
+<section class="navbar">
   <nav>
     <div class="nav-wrapper grey darken-4">
-      <a routerLink="/overview" class="brand-logo">Cargo<i class="fas fa-shipping-fast"></i>Market</a>
       <ul class="right hide-on-med-and-down">
         <li><a href="sass.html">Calculate</a></li>
         <li><a href="badges.html">Notification</a></li>
@@ -28,14 +27,17 @@
 </section>
 
 <ul class="sidenav sidenav-fixed" #sidenav>
-  <li><div class="user-view">
-    <div class="background">
-      <img src="../../../../assets/luigi-1536259-unsplash.jpg" alt="">
-    </div>
-    <span class="white-text name">John Doe</span>
-    <span class="white-text email">jdandturk@gmail.com</span>
-  </div></li>
-  <li><a href="#!">Link</a></li>
-  <li><a class="waves-effect" href="#!">Link With Waves</a></li>
+  <li class="sidenav-header">
+    <a routerLink="/overview" class="brand-logo">Cargo<i class="fas fa-shipping-fast"></i>Market</a>
+  </li>
+  <li class="sidenav-item">
+    <a class="waves-effect" href="#!"><i class="far fa-chart-bar"></i>History</a>
+  </li>
+  <li class="sidenav-item">
+    <a class="waves-effect" href="#!"><i class="fas fa-truck-moving"></i>My transport</a>
+  </li>
+  <li class="sidenav-item">
+    <a class="waves-effect" href="#!"><i class="fas fa-box-open"></i>My load</a>
+  </li>
 </ul>
 
