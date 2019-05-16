@@ -1,5 +1,5 @@
-import { Controller, Get, Post, Body, Req, UseGuards } from '@nestjs/common';
-import { ApiOperation, ApiCreatedResponse, ApiUseTags } from '@nestjs/swagger';
+import { Controller, Get, Post, Body, Req, UseGuards, Param } from '@nestjs/common';
+import { ApiOperation, ApiCreatedResponse, ApiUseTags, ApiBearerAuth } from '@nestjs/swagger';
 import { CreateTransportDto } from './interfaces';
 import { TransportService } from './transport.service';
 import { AuthGuard } from '@nestjs/passport';
@@ -11,6 +11,7 @@ export class TransportController {
 
   @ApiOperation({ title: 'Adding new transport' })
   @ApiCreatedResponse({ description: 'Created new transport' })
+  @ApiBearerAuth()
   @Post('')
   @UseGuards(AuthGuard())
   async createNewTransport(@Body() transport: CreateTransportDto, @Req() req) {
@@ -21,8 +22,28 @@ export class TransportController {
 
   @ApiOperation({ title: 'Fetch all transport' })
   @ApiCreatedResponse({ description: 'Fetch all transport' })
+  @ApiBearerAuth()
   @Get('')
+  @UseGuards(AuthGuard())
   async getAllTransport() {
     return await this.transportService.getAllTransport();
+  }
+
+  @ApiOperation({ title: 'Fetch user transport' })
+  @ApiCreatedResponse({ description: 'Fetch only user transport' })
+  @ApiBearerAuth()
+  @Get('/my')
+  @UseGuards(AuthGuard())
+  async getUserTransport(@Req() req) {
+    return await this.transportService.getUserTransport(req.user._id);
+  }
+
+  @ApiOperation({ title: 'Get specific car' })
+  @ApiCreatedResponse({ description: 'Get specific car by her id' })
+  @ApiBearerAuth()
+  @Get('/:id')
+  @UseGuards(AuthGuard())
+  async getTransportById(@Param() params) {
+    return await this.transportService.getById(params.id);
   }
 }

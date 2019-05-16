@@ -27,13 +27,13 @@ export class TransportFormComponent implements OnInit, AfterViewInit, OnDestroy 
     MaterialService.initSelectField(this.selectRef);
 
     this.form = new FormGroup({
-      loadingDate: new FormControl(null, Validators.required),
-      dischargeDate: new FormControl(null, Validators.required),
-      loadingPoint: new FormControl(null, Validators.required),
-      dischargePoint: new FormControl(null, Validators.required),
+      loadingDate: new FormControl(null),
+      dischargeDate: new FormControl(null),
+      loadingPoint: new FormControl(null),
+      dischargePoint: new FormControl(null),
       typeTransport: new FormControl(null, Validators.required),
-      amountTransport: new FormControl(null, Validators.required),
-      loadCapacity: new FormControl(null, Validators.required),
+      amountTransport: new FormControl(null, [ Validators.required, Validators.min(1) ]),
+      loadCapacity: new FormControl(null, [ Validators.required, Validators.min(0.01) ]),
       companyName: new FormControl(null, Validators.required),
       contactPersonName: new FormControl(null, Validators.required),
       contactEmail: new FormControl(null, Validators.required),
@@ -84,6 +84,7 @@ export class TransportFormComponent implements OnInit, AfterViewInit, OnDestroy 
       (transport) => {
         this.transport = transport;
         MaterialService.toast('New transport saved!');
+        this.resetForm();
         this.form.enable();
       },
       (error) => {
@@ -95,6 +96,7 @@ export class TransportFormComponent implements OnInit, AfterViewInit, OnDestroy 
 
   resetForm() {
     this.form.reset();
+    MaterialService.updateTextInputs();
   }
 
   onShowMap() {

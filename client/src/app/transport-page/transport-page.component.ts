@@ -9,10 +9,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./transport-page.component.css'],
 })
 export class TransportPageComponent implements OnInit {
+  filter = false;
+  transports: Transport[];
   constructor(private transportService: TransportService,
               private router: Router) { }
 
-  transports: Transport[];
+
 
   ngOnInit() {
     this.fetchTransport();
@@ -30,5 +32,9 @@ export class TransportPageComponent implements OnInit {
   onFieldClick(car) {
     console.log(car);
     this.router.navigate(['transport/new']);
+  }
+
+  openFilter() {
+    this.filter ? this.filter = false : this.filter = true;
   }
 }

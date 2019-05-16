@@ -10,27 +10,17 @@ import { AuthService } from '../../services/auth.service';
 export class MainLayoutComponent implements OnInit {
 
   links = [
+    { url: '/transport', name: 'Find a transport' },
     { url: '/transport', name: 'List of transport' },
     { url: '/transport/new', name: 'Add a transport' },
     { url: '/cargo', name: 'List of load' },
     { url: '/cargo/new', name: 'Add a cargo' },
   ];
-  currentUser: User;
+  userName = localStorage.getItem('user_name');
 
   constructor(private readonly authService: AuthService) { }
 
   ngOnInit() {
-    this.getUserFromReq();
-  }
-
-  getUserFromReq() {
-    if (this.authService.isAuthenticated()) {
-      let user$;
-      user$ = this.authService.getUserFromRequest();
-      user$.subscribe((user) => {
-        this.currentUser = user;
-      });
-    }
   }
 
   logout() {

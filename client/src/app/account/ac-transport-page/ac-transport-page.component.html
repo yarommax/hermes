@@ -1,3 +1,79 @@
-<p>
-  ac-transport-page works!
-</p>
+<div class="transport-data-wrapper" *ngIf="myTransport; else loader">
+
+  <div class="transport-data-table" *ngIf="myTransport.length !==0; else empty">
+
+    <div class="transport-data-field card-panel hoverable" *ngFor="let car of myTransport">
+
+      <div class="main-info">
+        <div class="transport-card">
+          <h6>
+            <i class="fas fa-calendar-alt"></i>
+            Date
+          </h6>
+          <p>Loading: <br>
+            <span class="bold">{{car.loadingDate | date: 'dd/MM/yyyy'}}</span>
+          </p>
+          <p>Discharge: <br>
+            <span class="bold">{{car.dischargeDate | date: 'dd/MM/yyyy'}}</span>
+          </p>
+        </div>
+
+        <div class="transport-card">
+          <h6>
+            <i class="fas fa-map-marked-alt"></i> Location:
+          </h6>
+          <p>Loading point: <br>
+            <span class="bold">{{car.loadingPoint}}</span>
+          </p>
+          <p>Discharge point: <br>
+            <span class="bold">{{car.dischargePoint}}</span>
+          </p>
+        </div>
+
+        <div class="transport-card">
+          <h6>
+            <i class="fas fa-truck-moving"></i> Transport type:
+          </h6>
+          <p>Transport type: <br>
+            <span class="bold">{{car.typeTransport}}</span>
+          </p>
+          <p>Amount of cars: <br>
+            <span class="bold">{{car.amountTransport}}</span>
+          </p>
+          <p>Load capacity(ton): <br>
+            <span class="bold">{{car.loadCapacity}}</span>
+          </p>
+        </div>
+
+        <div class="transport-card">
+          <h6>
+            <i class="fas fa-info-circle"></i> Company info:
+          </h6>
+          <p>Company: <span class="bold">{{car.companyName}}</span></p>
+          <p>Contact person: <span class="bold">{{car.contactPersonName}}</span></p>
+          <p>Email: <span class="bold">{{car.contactEmail}}</span></p>
+          <p>Skype: <span class="bold">{{car.contactSkype}}</span></p>
+          <p>Telephone: <span class="bold">{{car.contactTelephone}}</span></p>
+        </div>
+      </div>
+
+      <div class="transport-card-stamp">
+        <p>Posted at: {{car.timeStamp | date: 'dd/MM/yyyy HH:mm'}} </p>
+        <p> / by <span class="bold">{{car.userStamp}}</span></p>
+        <p> User id: {{car.userId}}</p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <ng-template #empty>
+    <div class="empty-template">
+      <h4>You don't have any transport.</h4>
+    </div>
+  </ng-template>
+</div>
+
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>

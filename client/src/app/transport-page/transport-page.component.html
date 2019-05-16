@@ -1,3 +1,10 @@
+<div class="container">
+  <button class="btn-flat" (click)="openFilter()"> {{ !filter? 'Open filter': 'Hide filter' }}</button>
+  <div *ngIf="filter">
+    <app-transport-filter></app-transport-filter>
+  </div>
+</div>
+
 <div class="transport-data-wrapper" *ngIf="transports; else loader">
 
   <div class="transport-data-table" *ngIf="transports.length !==0; else empty">
@@ -69,7 +76,7 @@
 
     <ng-template #empty>
       <div class="empty-template">
-        <h4>You don't have any transport.</h4>
+        <h4>We don't have any transport yet.</h4>
       </div>
     </ng-template>
 </div>

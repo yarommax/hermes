@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { TransportService } from '../../shared/services/transport.service';
 import { Transport } from '../../shared/interfaces';
+import { TransportService } from '../../shared/services/transport.service';
 
 @Component({
-  selector: 'app-ac-transport-page',
-  templateUrl: './ac-transport-page.component.html',
-  styleUrls: ['./ac-transport-page.component.css']
+  selector: 'app-ac-main-page',
+  templateUrl: './ac-main-page.component.html',
+  styleUrls: ['./ac-main-page.component.css']
 })
-export class AcTransportPageComponent implements OnInit {
+export class AcMainPageComponent implements OnInit {
   myTransport: Transport[];
+  amount;
 
   constructor(private transportService: TransportService) { }
 
@@ -20,7 +21,9 @@ export class AcTransportPageComponent implements OnInit {
     let obs$;
     obs$ = this.transportService.fetchUserTransport();
     obs$.subscribe( (res) => {
-        this.myTransport = res;
+      this.myTransport = res;
+      this.amount = res.length;
     });
   }
+
 }

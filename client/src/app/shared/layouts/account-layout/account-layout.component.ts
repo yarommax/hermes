@@ -9,11 +9,14 @@ import { AuthService } from '../../services/auth.service';
 })
 export class AccountLayoutComponent implements OnInit, AfterViewInit {
 
+  userName = localStorage.getItem('user_name');
+  userId = localStorage.getItem('user_id');
+
+
   links = [
-    { url: '/history', name: 'History' },
-    { url: '/transport', name: 'My transport' },
-    { url: '/cargo', name: 'My loads' },
-    { url: '/logout', name: 'Logout' },
+    { url: `/account/main`, name: 'History' },
+    { url: `/account/transport`, name: 'My transport' },
+    { url: `/account/cargo`, name: 'My loads' },
   ];
 
   @ViewChild('dropdown') dropdownRef: ElementRef;

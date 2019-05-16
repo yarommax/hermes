@@ -1,6 +1,7 @@
 <div class="container">
   <div class="page-title">
-    <h5>Create new transport:</h5>
+    <a routerLink="/transport">List of transport <i class="fas fa-chevron-right"></i></a>
+    <a routerLink="/transport/new">Add a transport </a>
   </div>
 
   <div class="card-panel hoverable">
@@ -17,11 +18,17 @@
                 type="text"
                 formControlName="loadingDate"
                 #loadingDate
-                [ngClass]="{'invalid': form.get('loadingDate').invalid
-                && form.get('loadingDate').touched
-                && !isValid}"
+                [ngClass]="{'invalid': !isValid}"
               >
               <label for="loadingDate">Loading day:</label>
+              <span
+                class="helper-text red-text"
+                *ngIf="!isValid"
+              >
+                <span>
+                    Погрузка не может быть позже разгрузки
+                </span>
+              </span>
             </div>
 
             <div class="input-field">
@@ -31,8 +38,17 @@
                 class="datepicker"
                 formControlName="dischargeDate"
                 #dischargeDate
+                [ngClass]="{'invalid': !isValid}"
               >
               <label for="dischargeDate">Discharge day:</label>
+              <span
+                class="helper-text red-text"
+                *ngIf="!isValid"
+              >
+                <span>
+                    Разгрузка не может быть раньше погрузки
+                </span>
+              </span>
             </div>
 
             <h6 class="bold">Location:</h6>
@@ -72,22 +88,48 @@
                 <option value="Полуприцеп">Полуприцеп</option>
                 <option value="Автовоз">Автовоз</option>
               </select>
+
             </div>
             <div class="input-field">
               <input
                 id="amountTransport"
-                type="text"
+                type="number"
                 formControlName="amountTransport"
+                [ngClass]="{'invalid': form.get('amountTransport').invalid && form.get('amountTransport').touched}"
               >
               <label for="amountTransport">Amount of cars:</label>
+              <span
+                class="helper-text red-text"
+                *ngIf="form.get('amountTransport').invalid && form.get('amountTransport').touched"
+              >
+                <span *ngIf="form.get('amountTransport').errors['required']">
+                    You have to enter amount of cars
+                </span>
+                <span *ngIf="form.get('amountTransport').errors['min']">
+                    Amount of cars can't be 0
+                </span>
+              </span>
             </div>
+
             <div class="input-field">
               <input
                 id="loadCapacity"
-                type="text"
+                type="number"
                 formControlName="loadCapacity"
+                [ngClass]="{'invalid': form.get('loadCapacity').invalid && form.get('loadCapacity').touched}"
               >
               <label for="loadCapacity">Load capacity (ton):</label>
+              <span
+                class="helper-text red-text"
+                *ngIf="form.get('loadCapacity').invalid && form.get('loadCapacity').touched"
+              >
+                <span *ngIf="form.get('loadCapacity').errors['required']">
+                    You have to enter load capacity
+                </span>
+                <span *ngIf="form.get('loadCapacity').errors['min']">
+                    Capacity have to be > than 0.01
+                </span>
+              </span>
             </div>
 
           </div>
@@ -101,8 +143,17 @@
                 id="companyName"
                 type="text"
                 formControlName="companyName"
+                [ngClass]="{'invalid': form.get('companyName').invalid && form.get('companyName').touched}"
               >
               <label for="companyName">Company name:</label>
+              <span
+                class="helper-text red-text"
+                *ngIf="form.get('companyName').invalid && form.get('companyName').touched"
+              >
+                <span *ngIf="form.get('companyName').errors['required']">
+                    You have to enter company Name
+                </span>
+              </span>
             </div>
 
             <div class="input-field">
@@ -110,8 +161,17 @@
                 id="contactPersonName"
                 type="text"
                 formControlName="contactPersonName"
+                [ngClass]="{'invalid': form.get('contactPersonName').invalid && form.get('contactPersonName').touched}"
               >
               <label for="contactPersonName">Contact person:</label>
+              <span
+                class="helper-text red-text"
+                *ngIf="form.get('contactPersonName').invalid && form.get('contactPersonName').touched"
+              >
+                <span *ngIf="form.get('contactPersonName').errors['required']">
+                    You have to enter contact person name
+                </span>
+              </span>
             </div>
 
             <div class="input-field">
@@ -119,8 +179,17 @@
                 id="contactEmail"
                 type="text"
                 formControlName="contactEmail"
+                [ngClass]="{'invalid': form.get('contactEmail').invalid && form.get('contactEmail').touched}"
               >
               <label for="contactEmail">Email:</label>
+              <span
+                class="helper-text red-text"
+                *ngIf="form.get('contactEmail').invalid && form.get('contactEmail').touched"
+              >
+                <span *ngIf="form.get('contactEmail').errors['required']">
+                    You have to enter email
+                </span>
+              </span>
             </div>
 
             <div class="input-field">
@@ -146,7 +215,7 @@
       <div class="button-group">
         <button
           class="waves-effect waves-light btn"
-          [disabled]="form.disabled || !isValid"
+          [disabled]="form.disabled || form.invalid ||!isValid"
           (click)="onSubmit()"
         >
           Save changes

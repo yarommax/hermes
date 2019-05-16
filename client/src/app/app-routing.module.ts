@@ -10,8 +10,9 @@ import { AuthGuard } from './shared/etc/auth.guard';
 import { CargoPageComponent } from './cargo-page/cargo-page.component';
 import { TransportFormComponent } from './transport-page/transport-form/transport-form.component';
 import { AccountLayoutComponent } from './shared/layouts/account-layout/account-layout.component';
-import { AccountMainPageComponent } from './account/account-main-page/account-main-page.component';
 import { AcTransportPageComponent } from './account/ac-transport-page/ac-transport-page.component';
+import { AcLoadPageComponent } from './account/ac-load-page/ac-load-page.component';
+import { AcMainPageComponent } from './account/ac-main-page/ac-main-page.component';
 
 const routes: Routes = [
   {
@@ -38,9 +39,9 @@ const routes: Routes = [
     component: AccountLayoutComponent,
     children: [
       { path: '', redirectTo: 'main', pathMatch: 'full' },
-      { path: 'main', component: AccountMainPageComponent },
+      { path: 'main', component: AcMainPageComponent },
       { path: 'transport', component: AcTransportPageComponent },
-      { path: 'load', component: AcTransportPageComponent },
+      { path: 'load', component: AcLoadPageComponent },
     ],
   },
 ];

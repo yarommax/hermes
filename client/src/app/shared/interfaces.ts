@@ -1,7 +1,8 @@
 export interface User {
+  userId?: string;
   email: string;
   username?: string;
-  password: string;
+  password?: string;
 }
 
 export interface Transport {

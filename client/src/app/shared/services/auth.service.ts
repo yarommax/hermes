@@ -11,6 +11,7 @@ import { MaterialService } from '../etc/material.service';
 })
 export class AuthService {
   private token = null;
+  private user: User;
 
   constructor(private httpClient: HttpClient,
               private router: Router) {}
@@ -19,20 +20,19 @@ export class AuthService {
     return this.httpClient.post<User>('api/auth/registration', body);
   }
 
-  login(body: User): Observable<{token: string}> {
-    return this.httpClient.post<{token: string}>('api/auth/login', body)
+  login(body: User): Observable<any> {
+    return this.httpClient.post<any>('api/auth/login', body)
       .pipe(
         tap(
-          ({ token }) => {
+          ({ newUser, token }) => {
+            localStorage.setItem('user_name', newUser.username);
+            localStorage.setItem('user_email', newUser.email);
+            localStorage.setItem('user_id', newUser.userId);
             localStorage.setItem('auth-token', token);
             this.setToken(token);
           },
         ),
       );
-  }
-
-  getUserFromRequest() {
-    return this.httpClient.get('api/auth/user');
   }
 
   setToken(token: string): void {

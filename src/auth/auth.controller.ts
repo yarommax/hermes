@@ -32,7 +32,6 @@ export class AuthController {
   @ApiConflictResponse({ description: 'Email is already exists' })
   @Post('/registration')
   async registration(@Body() user: CreateUserDto) {
-    console.log(user);
     const candidate = await this.authService.findUser(user);
     if (candidate) {
       throw new ConflictException(errorMessages.EMAIL_EXISTS);
@@ -44,7 +43,7 @@ export class AuthController {
   @ApiOperation({ title: 'Hermes login' })
   @ApiOkResponse({ description: 'Login Successful' })
   @Post('/login')
-  async login(@Body() user: LoginUserDto, @Res() response) {
+  async login(@Body() user: LoginUserDto, @Res() response, @Req() request) {
     const candidate = await this.authService.findUser(user);
 
     if (candidate) {
@@ -52,10 +51,15 @@ export class AuthController {
         user.password,
         candidate.password,
       );
-
       if (comparePasswords) {
         const token = this.authService.createToken(candidate);
+        const newUser = {
+          email: candidate.email,
+          username: candidate.username,
+          userId: candidate._id,
+        };
         response.status(200).json({
+          newUser,
           token: `Bearer ${token}`,
         });
       } else {

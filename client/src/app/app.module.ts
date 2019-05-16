@@ -15,8 +15,10 @@ import { TokenInterceptor } from './shared/etc/token.interceptor';
 import { CargoPageComponent } from './cargo-page/cargo-page.component';
 import { LoaderComponent } from './shared/component/loader/loader.component';
 import { TransportFormComponent } from './transport-page/transport-form/transport-form.component';
-import { AccountMainPageComponent } from './account/account-main-page/account-main-page.component';
 import { AcTransportPageComponent } from './account/ac-transport-page/ac-transport-page.component';
+import { AcLoadPageComponent } from './account/ac-load-page/ac-load-page.component';
+import { AcMainPageComponent } from './account/ac-main-page/ac-main-page.component';
+import { TransportFilterComponent } from './transport-page/transport-filter/transport-filter.component';
 
 @NgModule({
   declarations: [
@@ -31,8 +33,10 @@ import { AcTransportPageComponent } from './account/ac-transport-page/ac-transpo
     CargoPageComponent,
     LoaderComponent,
     TransportFormComponent,
-    AccountMainPageComponent,
     AcTransportPageComponent,
+    AcLoadPageComponent,
+    AcMainPageComponent,
+    TransportFilterComponent,
   ],
   imports: [
     BrowserModule,

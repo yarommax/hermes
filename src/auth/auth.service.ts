@@ -32,7 +32,7 @@ export class AuthService {
   }
 
   async validateUser(payload: TokenPayload) {
-    return await this.userModel.findById({ _id: payload.userId }).select('email id username');
+    return await this.userModel.findById({ _id: payload.userId }).select('email _id username');
   }
 
   createToken(user) {

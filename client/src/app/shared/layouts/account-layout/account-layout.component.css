@@ -10,9 +10,13 @@
   color: white;
   margin: unset;
 }
-.navbar {
 
+.dropdown-trigger i{
+  font-size: 14px;
+  color: white;
+  padding-left: 5px;
 }
+
 /* setting user account menu dropdown*/
 .dropdown-content {
   width: 200px;

@@ -2,6 +2,10 @@
 .page-title {
   padding: 15px;
 }
+.page-title a {
+  color: black;
+  padding-right: 5px;
+}
 
 /*input fields*/
 .input-field input {

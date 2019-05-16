@@ -16,4 +16,8 @@ export class TransportService {
   createNewTransport(body: Transport): Observable<Transport> {
     return this.httpClient.post<Transport>('/api/transport', body);
   }
+
+  fetchUserTransport(): Observable<Transport[]> {
+    return this.httpClient.get<Transport[]>('/api/transport/my');
+  }
 }
