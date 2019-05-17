@@ -20,7 +20,7 @@ export class AcTransportPageComponent implements OnInit {
     let obs$;
     obs$ = this.transportService.fetchUserTransport();
     obs$.subscribe( (res) => {
-        this.myTransport = res;
+        this.myTransport = res.reverse();
     });
   }
 }

@@ -1,7 +1,44 @@
 <div class="container">
-  <button class="btn-flat" (click)="openFilter()"> {{ !filter? 'Open filter': 'Hide filter' }}</button>
-  <div *ngIf="filter">
-    <app-transport-filter></app-transport-filter>
+  <button class="btn-flat" (click)="openFilter()"> {{ !filterBlock? 'Open filter': 'Hide filter' }}</button>
+  <div *ngIf="filterBlock" class="filter">
+    <div class="row">
+      <div class="col l4">
+
+        <form action="" [formGroup]="form">
+          <input
+            type="text"
+            placeholder="Enter the loading city"
+            formControlName="startPoint"
+            [ngClass]="{'invalid': form.get('startPoint').invalid }"
+          >
+
+          <input
+            type="text"
+            placeholder="Enter the discharge city"
+            formControlName="endPoint"
+          >
+          <button
+            class="btn waves-effect waves-teal"
+            type="submit"
+            (click)="applyFilter()"
+            [disabled]="form.disabled || form.invalid"
+          >
+            Apply filter
+          </button>
+
+          <button
+            class="btn-flat waves-effect waves-red"
+            type="submit"
+            (click)="clearFilter()"
+            [disabled]="form.disabled || form.invalid"
+          >
+            Reset filter
+          </button>
+
+        </form>
+
+      </div>
+    </div>
   </div>
 </div>
 

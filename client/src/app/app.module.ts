@@ -18,7 +18,6 @@ import { TransportFormComponent } from './transport-page/transport-form/transpor
 import { AcTransportPageComponent } from './account/ac-transport-page/ac-transport-page.component';
 import { AcLoadPageComponent } from './account/ac-load-page/ac-load-page.component';
 import { AcMainPageComponent } from './account/ac-main-page/ac-main-page.component';
-import { TransportFilterComponent } from './transport-page/transport-filter/transport-filter.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +35,6 @@ import { TransportFilterComponent } from './transport-page/transport-filter/tran
     AcTransportPageComponent,
     AcLoadPageComponent,
     AcMainPageComponent,
-    TransportFilterComponent,
   ],
   imports: [
     BrowserModule,
