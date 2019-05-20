@@ -1,13 +1,22 @@
-import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  EventEmitter,
+  OnDestroy,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { MaterialService } from '../../shared/etc/material.service';
+import { MaterialDatePicker, MaterialService } from '../../shared/etc/material.service';
 
 @Component({
   selector: 'app-transport-filter',
   templateUrl: './transport-filter.component.html',
   styleUrls: ['./transport-filter.component.css'],
 })
-export class TransportFilterComponent implements OnInit {
+export class TransportFilterComponent implements OnInit, AfterViewInit, OnDestroy {
   filterBlock = false;
 
   form: FormGroup;
@@ -15,6 +24,11 @@ export class TransportFilterComponent implements OnInit {
   // tslint:disable:no-output-on-prefix
   @Output() onFilter = new EventEmitter();
   @Output() onCancel = new EventEmitter();
+  @ViewChild('loadingDate') loadingRef: ElementRef;
+  @ViewChild('dischargeDate') dischargeRef: ElementRef;
+  loadingDate: MaterialDatePicker;
+  dischargeDate: MaterialDatePicker;
+  isValid = true;
 
   constructor() { }
 
@@ -33,8 +47,37 @@ export class TransportFilterComponent implements OnInit {
     });
   }
 
+  ngAfterViewInit() {
+    this.loadingDate = MaterialService.initDatepicker(this.loadingRef, this.validateDateInput.bind(this));
+    this.dischargeDate = MaterialService.initDatepicker(this.dischargeRef, this.validateDateInput.bind(this));
+  }
+
+  ngOnDestroy() {
+    this.loadingDate.destroy();
+    this.dischargeDate.destroy();
+  }
+
+  validateDateInput() {
+    if (!this.loadingDate.date || !this.dischargeDate.date) {
+      this.isValid = true;
+      return;
+    }
+
+    this.isValid = this.loadingDate.date < this.dischargeDate.date;
+  }
+
   applyFilter() {
-    this.onFilter.emit(this.form.value);
+    const body = {
+      loadingDate: this.loadingDate.date,
+      dischargeDate: this.dischargeDate.date,
+      loadingPoint: this.form.value.loadingPoint,
+      dischargePoint: this.form.value.dischargePoint,
+      typeTransport: this.form.value.typeTransport,
+      amountTransport: this.form.value.amountTransport,
+      loadCapacity: this.form.value.loadCapacity,
+      companyName: this.form.value.companyName,
+    };
+    this.onFilter.emit(body);
   }
 
   openFilter() {
