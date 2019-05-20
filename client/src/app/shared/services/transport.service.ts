@@ -20,4 +20,8 @@ export class TransportService {
   fetchUserTransport(): Observable<Transport[]> {
     return this.httpClient.get<Transport[]>('/api/transport/my');
   }
+
+  fetchFilteredTransport(filter): Observable<Transport[]> {
+    return this.httpClient.post<Transport[]>('/api/transport/filter', filter);
+  }
 }

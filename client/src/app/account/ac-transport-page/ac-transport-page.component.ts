@@ -5,7 +5,7 @@ import { Transport } from '../../shared/interfaces';
 @Component({
   selector: 'app-ac-transport-page',
   templateUrl: './ac-transport-page.component.html',
-  styleUrls: ['./ac-transport-page.component.css']
+  styleUrls: ['./ac-transport-page.component.css'],
 })
 export class AcTransportPageComponent implements OnInit {
   myTransport: Transport[];
@@ -19,8 +19,8 @@ export class AcTransportPageComponent implements OnInit {
   getMyTransport() {
     let obs$;
     obs$ = this.transportService.fetchUserTransport();
-    obs$.subscribe( (res) => {
-        this.myTransport = res.reverse();
+    obs$.subscribe((res) => {
+      this.myTransport = res.reverse();
     });
   }
 }

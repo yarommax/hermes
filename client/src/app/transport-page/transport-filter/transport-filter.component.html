@@ -1,0 +1,81 @@
+<button class="btn-flat" (click)="openFilter()"> {{ !filterBlock? 'Open filter': 'Hide filter' }}</button>
+<div class="filter">
+  <div class="row">
+    <div class="col l12">
+
+      <form [formGroup]="form">
+        <div class="row">
+          <div class="col l6">
+
+            <input
+              type="text"
+              placeholder="Loading place"
+              formControlName="loadingPoint"
+            >
+            <input
+              type="text"
+              placeholder="Discharge place"
+              formControlName="dischargePoint"
+            >
+
+            <button
+              class="btn waves-effect waves-teal"
+              type="submit"
+              (click)="applyFilter()"
+              [disabled]="form.disabled || form.invalid"
+            >
+              Apply filter
+            </button>
+
+            <button
+              class="btn-flat waves-effect waves-red"
+              type="submit"
+              (click)="clearFilter()"
+              [disabled]="form.disabled || form.invalid"
+            >
+              Reset filter
+            </button>
+          </div>
+          <div class="col l6">
+
+            <select #select
+                    class="type-tr-select"
+                    formControlName="typeTransport"
+            >
+              <option value="" disabled selected>Choose type of transport</option>
+              <option value="Тент">Тент</option>
+              <option value="Автосцепка">Автосцепка</option>
+              <option value="Автосцепка">Автосцепка</option>
+              <option value="Рефрижератор">Рефрижератор</option>
+              <option value="Полуприцеп">Полуприцеп</option>
+              <option value="Автовоз">Автовоз</option>
+            </select>
+
+            <input
+              type="number"
+              placeholder="Amount transport"
+              formControlName="amountTransport"
+            >
+            <input
+              type="number"
+              placeholder="Load capacity (ton)"
+              formControlName="loadCapacity"
+            >
+            <input
+              type="text"
+              placeholder="Company name"
+              formControlName="companyName"
+            >
+          </div>
+        </div>
+
+
+
+
+      </form>
+
+    </div>
+  </div>
+</div>
+
+

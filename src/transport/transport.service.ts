@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { CreateTransportDto, TransportEntity } from './interfaces';
+import { CreateTransportDto, TransportEntity, TrFilter } from './interfaces';
 import { Model } from 'mongoose';
 
 @Injectable()
@@ -24,6 +24,17 @@ export class TransportService {
   }
 
   async getById(id) {
-    return await this.transportModel.findById({ _id : id });
+    return await this.transportModel.findById(id);
+  }
+
+  async getFilteredTransport(conditions) {
+    const filter = {};
+    for (const c in conditions) {
+      if (conditions[c]) {
+        filter[c] = conditions[c];
+      }
+    }
+
+    return await this.transportModel.find(filter);
   }
 }

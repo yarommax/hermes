@@ -5,7 +5,7 @@ export interface TransportEntity extends Document {
   loadingDate: Date;
   dischargeDate: Date;
   loadingPoint: string;
-  readonly dischargePoint: string;
+  dischargePoint: string;
 
   // Type of transport
   typeTransport: string;
@@ -22,5 +22,5 @@ export interface TransportEntity extends Document {
   // stamp
   timeStamp: Date;
   userStamp: string;
-  userId: string;
+  userId?: object;
 }

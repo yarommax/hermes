@@ -5,7 +5,7 @@ import { TransportService } from '../../shared/services/transport.service';
 @Component({
   selector: 'app-ac-main-page',
   templateUrl: './ac-main-page.component.html',
-  styleUrls: ['./ac-main-page.component.css']
+  styleUrls: ['./ac-main-page.component.css'],
 })
 export class AcMainPageComponent implements OnInit {
   myTransport: Transport[];
@@ -20,7 +20,7 @@ export class AcMainPageComponent implements OnInit {
   getMyTransport() {
     let obs$;
     obs$ = this.transportService.fetchUserTransport();
-    obs$.subscribe( (res) => {
+    obs$.subscribe((res) => {
       this.myTransport = res;
       this.amount = res.length;
     });

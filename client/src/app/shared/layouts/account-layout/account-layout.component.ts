@@ -12,7 +12,6 @@ export class AccountLayoutComponent implements OnInit, AfterViewInit {
   userName = localStorage.getItem('user_name');
   userId = localStorage.getItem('user_id');
 
-
   links = [
     { url: `/account/main`, name: 'History' },
     { url: `/account/transport`, name: 'My transport' },

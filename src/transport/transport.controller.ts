@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Body, Req, UseGuards, Param } from '@nestjs/common';
 import { ApiOperation, ApiCreatedResponse, ApiUseTags, ApiBearerAuth } from '@nestjs/swagger';
-import { CreateTransportDto } from './interfaces';
+import { CreateTransportDto, TrFilter } from './interfaces';
 import { TransportService } from './transport.service';
 import { AuthGuard } from '@nestjs/passport';
 
@@ -29,7 +29,7 @@ export class TransportController {
     return await this.transportService.getAllTransport();
   }
 
-  @ApiOperation({ title: 'Fetch user transport' })
+  @ApiOperation({ title: 'Fetch only user transport' })
   @ApiCreatedResponse({ description: 'Fetch only user transport' })
   @ApiBearerAuth()
   @Get('/my')
@@ -38,12 +38,22 @@ export class TransportController {
     return await this.transportService.getUserTransport(req.user._id);
   }
 
-  @ApiOperation({ title: 'Get specific car' })
-  @ApiCreatedResponse({ description: 'Get specific car by her id' })
+  // @ApiOperation({ title: 'Get specific car' })
+  // @ApiCreatedResponse({ description: 'Get specific car by her id' })
+  // @ApiBearerAuth()
+  // @Get('/:id')
+  // @UseGuards(AuthGuard())
+  // async getTransportById(@Param() params) {
+  //   // переписать название эндпоинта
+  //   return await this.transportService.getById(params.id);
+  // }
+
+  @ApiOperation({ title: 'Fetch filtered transport' })
+  @ApiCreatedResponse({ description: 'Fetch filtered transport' })
   @ApiBearerAuth()
-  @Get('/:id')
+  @Post('/filter')
   @UseGuards(AuthGuard())
-  async getTransportById(@Param() params) {
-    return await this.transportService.getById(params.id);
+  async getFilteredTransport(@Body() filter: TrFilter) {
+    return await this.transportService.getFilteredTransport(filter);
   }
 }
