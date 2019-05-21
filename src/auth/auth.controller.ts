@@ -74,6 +74,6 @@ export class AuthController {
   @Get('/user')
   @UseGuards(AuthGuard())
   getUserFromReq(@Req() req) {
-    return req.user;
+    return this.authService.getUserInfo(req.user._id);
   }
 }

@@ -3,6 +3,10 @@ export interface User {
   email: string;
   username?: string;
   password?: string;
+  companyName?: string;
+  contactPersonName?: string;
+  contactSkype?: string;
+  contactTelephone?: string;
 }
 
 export interface Transport {
@@ -32,7 +36,6 @@ export interface Transport {
 export interface Cargo {
   startLoadingDate: Date;
   endLoadingDate: Date;
-  dischargeDate: Date;
   loadingPoint: string;
   dischargePoint: string;
 
@@ -49,4 +52,8 @@ export interface Cargo {
   contactEmail: string;
   contactSkype: string;
   contactTelephone: string;
+
+  timeStamp?: string;
+  userStamp?: string;
+  userId?: string;
 }

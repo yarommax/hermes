@@ -1,5 +1,7 @@
 <div class="container">
+  <button class="btn-flat" (click)="openFilter()"> {{ !filterBlock? 'Open filter': 'Hide filter' }}</button>
   <app-transport-filter
+    *ngIf="filterBlock"
     (onFilter)="applyFilter($event)"
     (onCancel)="fetch()"
   ></app-transport-filter>

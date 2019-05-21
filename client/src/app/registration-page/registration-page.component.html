@@ -6,59 +6,103 @@
 
   <div class="card-content">
     <span class="card-title">Create an account</span>
+    <div class="row">
 
-    <div class="input-field">
-      <input
-        formControlName="email"
-        id="email"
-        type="email"
-        [ngClass]="{'invalid': form.get('email').invalid && form.get('email').touched}"
-      >
-      <label for="email">Email:</label>
-      <span
-        class="helper-text red-text"
-        *ngIf="form.get('email').invalid && form.get('email').touched"
-      >
+      <div class="col l6">
+        <div class="input-field">
+          <input
+            formControlName="email"
+            id="email"
+            type="email"
+            [ngClass]="{'invalid': form.get('email').invalid && form.get('email').touched}"
+          >
+          <label for="email">Email:</label>
+          <span
+            class="helper-text red-text"
+            *ngIf="form.get('email').invalid && form.get('email').touched"
+          >
                 <span *ngIf="form.get('email').errors['required']">Email is required field.</span>
                 <span *ngIf="form.get('email').errors['email']">Enter the correct email.</span>
             </span>
-    </div>
+        </div>
 
-    <div class="input-field">
-      <input
-        formControlName="username"
-        id="username"
-        type="text"
-        [ngClass]="{'invalid': form.get('username').invalid && form.get('username').touched}"
-      >
-      <label for="email">Username:</label>
-      <span
-        class="helper-text red-text"
-        *ngIf="form.get('username').invalid && form.get('username').touched"
-      >
+        <div class="input-field">
+          <input
+            formControlName="username"
+            id="username"
+            type="text"
+            [ngClass]="{'invalid': form.get('username').invalid && form.get('username').touched}"
+          >
+          <label for="email">Username:</label>
+          <span
+            class="helper-text red-text"
+            *ngIf="form.get('username').invalid && form.get('username').touched"
+          >
                 <span *ngIf="form.get('username').errors['required']">Username is required field.</span>
             </span>
-    </div>
+        </div>
 
-    <div class="input-field">
-      <input
-        formControlName="password"
-        id="password"
-        type="password"
-        [ngClass]="{'invalid': form.get('password').invalid && form.get('password').touched}"
-      >
-      <label for="password">Password:</label>
-      <span
-        class="helper-text red-text"
-        *ngIf="form.get('password').invalid && form.get('password').touched"
-      >
+        <div class="input-field">
+          <input
+            formControlName="password"
+            id="password"
+            type="password"
+            [ngClass]="{'invalid': form.get('password').invalid && form.get('password').touched}"
+          >
+          <label for="password">Password:</label>
+          <span
+            class="helper-text red-text"
+            *ngIf="form.get('password').invalid && form.get('password').touched"
+          >
                 <span *ngIf="form.get('password').errors['required']">Password is required filed.</span>
                 <span *ngIf="form.get('password').errors['minlength'] && form.get('password').errors['minlength']['requiredLength']">
                     Password has to be more than {{form.get('password').errors['minlength']['requiredLength']}} symbols.
                     Right now: {{form.get('password').errors['minlength']['actualLength']}}
                 </span>
             </span>
+        </div>
+      </div>
+
+      <div class="col l6">
+        <div class="input-field">
+          <input
+            formControlName="companyName"
+            id="companyName"
+            type="text"
+          >
+          <label for="companyName">Company name:</label>
+        </div>
+
+        <div class="input-field">
+          <input
+            formControlName="contactPersonName"
+            id="contactPersonName"
+            type="text"
+          >
+          <label for="contactPersonName">Contact name:</label>
+        </div>
+
+        <div class="input-field">
+          <input
+            formControlName="contactSkype"
+            id="contactSkype"
+            type="text"
+          >
+          <label for="contactSkype">Skype:</label>
+        </div>
+
+        <div class="input-field">
+          <input
+            formControlName="contactTelephone"
+            id="contactTelephone"
+            type="text"
+          >
+          <label for="contactTelephone">Contact telephone:</label>
+        </div>
+      </div>
+
     </div>
+
   </div>
 
   <div class="card-action">

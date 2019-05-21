@@ -9,9 +9,6 @@ export class CreateCargoDto {
   readonly endLoadingDate: Date;
 
   @ApiModelProperty()
-  readonly dischargeDate: Date;
-
-  @ApiModelProperty()
   readonly loadingPoint: string;
 
   @ApiModelProperty()
@@ -48,4 +45,10 @@ export class CreateCargoDto {
 
   @ApiModelProperty()
   readonly contactTelephone: string;
+
+  @ApiModelProperty()
+  userStamp?: string;
+
+  @ApiModelProperty()
+  userId?: string;
 }

@@ -23,6 +23,11 @@ export class AuthService {
       email: user.email,
       username: user.username,
       password: bcrypt.hashSync(password, salt),
+      companyName: user.companyName,
+      contactPersonName: user.contactPersonName,
+      contactEmail: user.contactEmail,
+      contactSkype: user.contactSkype,
+      contactTelephone: user.contactTelephone,
     });
     return await newUser.save();
   }
@@ -33,6 +38,10 @@ export class AuthService {
 
   async validateUser(payload: TokenPayload) {
     return await this.userModel.findById({ _id: payload.userId }).select('email _id username');
+  }
+
+  async getUserInfo(id) {
+    return await this.userModel.findById(id).select('-password');
   }
 
   createToken(user) {

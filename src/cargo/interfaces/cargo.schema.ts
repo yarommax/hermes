@@ -6,7 +6,6 @@ export const CargoSchema = new Schema({
   // time and place
   startLoadingDate: { type: Date, default: Date.now },
   endLoadingDate: { type: Date, default: Date.now },
-  dischargeDate: { type: Date, default: Date.now },
   loadingPoint: { type: String },
   dischargePoint: { type: String },
 
@@ -23,4 +22,11 @@ export const CargoSchema = new Schema({
   contactEmail: { type: String },
   contactSkype: { type: String },
   contactTelephone: { type: String },
+
+  timeStamp: { type: Date, default: Date.now },
+  userStamp: { type: String },
+  userId: {
+    ref: 'users',
+    type: Schema.Types.ObjectId,
+  },
 });

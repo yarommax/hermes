@@ -11,8 +11,9 @@ import { CargoPageComponent } from './cargo-page/cargo-page.component';
 import { TransportFormComponent } from './transport-page/transport-form/transport-form.component';
 import { AccountLayoutComponent } from './shared/layouts/account-layout/account-layout.component';
 import { AcTransportPageComponent } from './account/ac-transport-page/ac-transport-page.component';
-import { AcLoadPageComponent } from './account/ac-load-page/ac-load-page.component';
 import { AcMainPageComponent } from './account/ac-main-page/ac-main-page.component';
+import { CargoFormComponent } from './cargo-page/cargo-form/cargo-form.component';
+import { AcCargoPageComponent } from './account/ac-cargo-page/ac-cargo-page.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,7 @@ const routes: Routes = [
       { path: 'transport', canActivate: [AuthGuard], component: TransportPageComponent },
       { path: 'transport/new', canActivate: [AuthGuard], component: TransportFormComponent },
       { path: 'cargo', canActivate: [AuthGuard], component: CargoPageComponent },
+      { path: 'cargo/new', canActivate: [AuthGuard], component: CargoFormComponent },
     ],
   },
   {
@@ -41,7 +43,7 @@ const routes: Routes = [
       { path: '', redirectTo: 'main', pathMatch: 'full' },
       { path: 'main', component: AcMainPageComponent },
       { path: 'transport', component: AcTransportPageComponent },
-      { path: 'load', component: AcLoadPageComponent },
+      { path: 'load', component: AcCargoPageComponent },
     ],
   },
 ];

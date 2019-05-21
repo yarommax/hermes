@@ -1,0 +1,5 @@
+.type-tr-select {
+  max-height: 350px !important;
+  overflow-y: auto !important;
+  backface-visibility: hidden !important;
+}

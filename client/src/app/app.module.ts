@@ -16,9 +16,11 @@ import { CargoPageComponent } from './cargo-page/cargo-page.component';
 import { LoaderComponent } from './shared/component/loader/loader.component';
 import { TransportFormComponent } from './transport-page/transport-form/transport-form.component';
 import { AcTransportPageComponent } from './account/ac-transport-page/ac-transport-page.component';
-import { AcLoadPageComponent } from './account/ac-load-page/ac-load-page.component';
 import { AcMainPageComponent } from './account/ac-main-page/ac-main-page.component';
 import { TransportFilterComponent } from './transport-page/transport-filter/transport-filter.component';
+import { CargoFilterComponent } from './cargo-page/cargo-filter/cargo-filter.component';
+import { CargoFormComponent } from './cargo-page/cargo-form/cargo-form.component';
+import { AcCargoPageComponent } from './account/ac-cargo-page/ac-cargo-page.component';
 
 @NgModule({
   declarations: [
@@ -34,9 +36,11 @@ import { TransportFilterComponent } from './transport-page/transport-filter/tran
     LoaderComponent,
     TransportFormComponent,
     AcTransportPageComponent,
-    AcLoadPageComponent,
     AcMainPageComponent,
     TransportFilterComponent,
+    CargoFormComponent,
+    CargoFilterComponent,
+    AcCargoPageComponent,
   ],
   imports: [
     BrowserModule,

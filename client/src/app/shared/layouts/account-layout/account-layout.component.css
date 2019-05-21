@@ -62,3 +62,9 @@
   border-left: 3px solid #37b256;
   background-color: #222222;
 }
+
+
+/* user modal */
+.modal-footer button {
+  margin-left: 15px;
+}
