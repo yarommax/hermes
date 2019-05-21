@@ -19,6 +19,10 @@ export class RegistrationPageComponent implements OnInit {
       email: new FormControl(null, [Validators.required, Validators.email]),
       username: new FormControl(null, [Validators.required]),
       password: new FormControl(null, [Validators.required, Validators.minLength(6)]),
+      companyName: new FormControl(null),
+      contactPersonName: new FormControl(null),
+      contactSkype: new FormControl(null),
+      contactTelephone: new FormControl(null),
     });
   }
 
@@ -30,6 +34,10 @@ export class RegistrationPageComponent implements OnInit {
       email: this.form.value.email,
       username: this.form.value.username,
       password: this.form.value.password,
+      companyName: this.form.value.companyName,
+      contactPersonName: this.form.value.contactPersonName,
+      contactSkype: this.form.value.contactSkype,
+      contactTelephone: this.form.value.contactTelephone,
     };
 
     obs$ = this.authService.register(body);

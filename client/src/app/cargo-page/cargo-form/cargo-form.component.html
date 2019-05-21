@@ -1,0 +1,241 @@
+<div class="container">
+  <div class="page-title">
+    <a routerLink="/cargo">List of cargo <i class="fas fa-chevron-right"></i></a>
+    <a routerLink="/cargo/new">Add a cargo </a>
+  </div>
+
+  <div class="card-panel hoverable">
+
+    <form class="transport-form" [formGroup]="form">
+      <div class="row">
+        <div class="col s3">
+
+          <div class="tr-data">
+            <h6 class="bold">Date:</h6>
+            <div class="input-field">
+              <input
+                id="startLoadingDate"
+                type="text"
+                formControlName="startLoadingDate"
+                #startLoading
+                [ngClass]="{'invalid': !isValid}"
+              >
+              <label for="startLoadingDate">Start Loading: </label>
+              <span
+                class="helper-text red-text"
+                *ngIf="!isValid"
+              >
+                <span>
+                    Погрузка не может быть позже разгрузки
+                </span>
+              </span>
+            </div>
+
+            <div class="input-field">
+              <input
+                id="endLoadingDate"
+                type="text"
+                class="datepicker"
+                formControlName="endLoadingDate"
+                #endLoading
+                [ngClass]="{'invalid': !isValid}"
+              >
+              <label for="endLoadingDate">End loading:</label>
+              <span
+                class="helper-text red-text"
+                *ngIf="!isValid"
+              >
+                <span>
+                    Разгрузка не может быть раньше погрузки
+                </span>
+              </span>
+            </div>
+
+            <h6 class="bold">Location:</h6>
+            <div class="input-field">
+              <input
+                id="loadingPoint"
+                type="text"
+                formControlName="loadingPoint"
+              >
+              <label for="loadingPoint">Loading place:</label>
+            </div>
+            <div class="input-field">
+              <input
+                id="dischargePoint"
+                type="text"
+                formControlName="dischargePoint"
+              >
+              <label for="dischargePoint">Discharge place:</label>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col s3 offset-s1">
+          <div class="tr-data">
+            <h6 class="bold">Cargo type:</h6>
+            <div class="input-field">
+              <input
+                id="typeCargo"
+                type="text"
+                formControlName="typeCargo"
+              >
+              <label for="typeCargo">Type of cargo:</label>
+            </div>
+            <div class="input-field">
+              <input
+                id="cargoWeight"
+                type="text"
+                formControlName="cargoWeight"
+              >
+              <label for="cargoWeight">Cargo weight(ton):</label>
+            </div>
+            <div class="input-field">
+              <input
+                id="cargoVolume"
+                type="text"
+                formControlName="cargoVolume"
+              >
+              <label for="cargoVolume">Cargo volume(m^3):</label>
+            </div>
+            <div class="input-field">
+              <select
+                #select class="type-tr-select"
+                formControlName="typeTransport"
+              >
+                <option value="" disabled selected>Choose type of transport</option>
+                <option value="Тент">Тент</option>
+                <option value="Автосцепка">Автосцепка</option>
+                <option value="Автосцепка">Автосцепка</option>
+                <option value="Рефрижератор">Рефрижератор</option>
+                <option value="Полуприцеп">Полуприцеп</option>
+                <option value="Автовоз">Автовоз</option>
+              </select>
+
+            </div>
+            <div class="input-field">
+              <input
+                id="amountTransport"
+                type="number"
+                formControlName="amountTransport"
+                [ngClass]="{'invalid': form.get('amountTransport').invalid && form.get('amountTransport').touched}"
+              >
+              <label for="amountTransport">Amount of cars:</label>
+              <span
+                class="helper-text red-text"
+                *ngIf="form.get('amountTransport').invalid && form.get('amountTransport').touched"
+              >
+                <span *ngIf="form.get('amountTransport').errors['required']">
+                    You have to enter amount of cars
+                </span>
+                <span *ngIf="form.get('amountTransport').errors['min']">
+                    Amount of cars can't be 0
+                </span>
+              </span>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col s3 offset-s1">
+          <div class="tr-data">
+            <h6 class="bold">Company contact:</h6>
+            <div class="input-field">
+              <input
+                id="companyName"
+                type="text"
+                formControlName="companyName"
+                [ngClass]="{'invalid': form.get('companyName').invalid && form.get('companyName').touched}"
+              >
+              <label for="companyName">Company name:</label>
+              <span
+                class="helper-text red-text"
+                *ngIf="form.get('companyName').invalid && form.get('companyName').touched"
+              >
+                <span *ngIf="form.get('companyName').errors['required']">
+                    You have to enter company Name
+                </span>
+              </span>
+            </div>
+
+            <div class="input-field">
+              <input
+                id="contactPersonName"
+                type="text"
+                formControlName="contactPersonName"
+                [ngClass]="{'invalid': form.get('contactPersonName').invalid && form.get('contactPersonName').touched}"
+              >
+              <label for="contactPersonName">Contact person:</label>
+              <span
+                class="helper-text red-text"
+                *ngIf="form.get('contactPersonName').invalid && form.get('contactPersonName').touched"
+              >
+                <span *ngIf="form.get('contactPersonName').errors['required']">
+                    You have to enter contact person name
+                </span>
+              </span>
+            </div>
+
+            <div class="input-field">
+              <input
+                id="contactEmail"
+                type="text"
+                formControlName="contactEmail"
+                [ngClass]="{'invalid': form.get('contactEmail').invalid && form.get('contactEmail').touched}"
+              >
+              <label for="contactEmail">Email:</label>
+              <span
+                class="helper-text red-text"
+                *ngIf="form.get('contactEmail').invalid && form.get('contactEmail').touched"
+              >
+                <span *ngIf="form.get('contactEmail').errors['required']">
+                    You have to enter email
+                </span>
+              </span>
+            </div>
+
+            <div class="input-field">
+              <input
+                id="contactSkype"
+                type="text"
+                formControlName="contactSkype"
+              >
+              <label for="contactSkype">Skype:</label>
+            </div>
+
+            <div class="input-field">
+              <input
+                id="contactTelephone"
+                type="text"
+                formControlName="contactTelephone"
+              >
+              <label for="contactTelephone">Telephone number:</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="button-group">
+        <button
+          class="waves-effect waves-light btn"
+          [disabled]="form.disabled || form.invalid ||!isValid"
+          (click)="onSubmit()"
+        >
+          Save changes
+        </button>
+
+        <button
+          class="waves-effect waves-red btn-flat"
+          (click)="resetForm()"
+        >
+          Reset form
+        </button>
+
+      </div>
+
+    </form>
+
+
+  </div>
+
+</div>

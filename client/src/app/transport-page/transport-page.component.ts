@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class TransportPageComponent implements OnInit {
   transports$: Observable<Transport[]>;
-
+  filterBlock = false;
   constructor(private transportService: TransportService) { }
 
   ngOnInit() {
@@ -23,5 +23,9 @@ export class TransportPageComponent implements OnInit {
 
   fetch() {
     this.transports$ = this.transportService.fetchTransport();
+  }
+
+  openFilter() {
+    this.filterBlock ? this.filterBlock = false : this.filterBlock = true;
   }
 }

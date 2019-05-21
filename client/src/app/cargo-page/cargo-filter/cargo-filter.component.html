@@ -4,34 +4,22 @@
 
       <form [formGroup]="form">
         <div class="row">
-          <div class="col l6">
+          <div class="col l4">
 
             <input
-              id="loadingDate"
+              id="startLoadingDate"
               type="text"
-              formControlName="loadingDate"
-              placeholder="Loading date"
-              #loadingDate
+              formControlName="startLoadingDate"
+              placeholder="Start loading date"
+              #startLoading
             >
             <input
-              id="dischargeDate"
+              id="endLoadingDate"
               type="text"
-              formControlName="dischargeDate"
-              placeholder="Discharge date"
-              #dischargeDate
+              formControlName="endLoadingDate"
+              placeholder="End loading date"
+              #endLoading
             >
-
-            <input
-              type="text"
-              placeholder="Loading place"
-              formControlName="loadingPoint"
-            >
-            <input
-              type="text"
-              placeholder="Discharge place"
-              formControlName="dischargePoint"
-            >
-
             <button
               class="btn waves-effect waves-teal"
               type="submit"
@@ -49,8 +37,34 @@
             >
               Reset filter
             </button>
+
           </div>
-          <div class="col l6">
+
+          <div class="col l4">
+            <input
+              type="text"
+              placeholder="Loading place"
+              formControlName="loadingPoint"
+            >
+            <input
+              type="text"
+              placeholder="Discharge place"
+              formControlName="dischargePoint"
+            >
+
+            <input
+              type="text"
+              placeholder="Type cargo"
+              formControlName="typeCargo"
+            >
+            <input
+              type="text"
+              placeholder="Cargo weight(ton)"
+              formControlName="cargoWeight"
+            >
+
+          </div>
+          <div class="col l4">
 
             <select #select
                     class="type-tr-select"
@@ -70,11 +84,7 @@
               placeholder="Amount transport"
               formControlName="amountTransport"
             >
-            <input
-              type="number"
-              placeholder="Load capacity (ton)"
-              formControlName="loadCapacity"
-            >
+
             <input
               type="text"
               placeholder="Company name"
@@ -82,9 +92,6 @@
             >
           </div>
         </div>
-
-
-
 
       </form>
 

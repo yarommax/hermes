@@ -12,21 +12,22 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { MaterialDatePicker, MaterialService } from '../../shared/etc/material.service';
 
 @Component({
-  selector: 'app-transport-filter',
-  templateUrl: './transport-filter.component.html',
-  styleUrls: ['./transport-filter.component.css'],
+  selector: 'app-cargo-filter',
+  templateUrl: './cargo-filter.component.html',
+  styleUrls: ['./cargo-filter.component.css']
 })
-export class TransportFilterComponent implements OnInit, AfterViewInit, OnDestroy {
+export class CargoFilterComponent implements OnInit, AfterViewInit, OnDestroy {
+  filterBlock = false;
 
   form: FormGroup;
   @ViewChild('select') selectRef: ElementRef;
   // tslint:disable:no-output-on-prefix
   @Output() onFilter = new EventEmitter();
   @Output() onCancel = new EventEmitter();
-  @ViewChild('loadingDate') loadingRef: ElementRef;
-  @ViewChild('dischargeDate') dischargeRef: ElementRef;
-  loadingDate: MaterialDatePicker;
-  dischargeDate: MaterialDatePicker;
+  @ViewChild('startLoading') startLoadingRef: ElementRef;
+  @ViewChild('endLoading') endLoadingRef: ElementRef;
+  startLoading: MaterialDatePicker;
+  endLoading: MaterialDatePicker;
   isValid = true;
 
   constructor() { }
@@ -35,48 +36,54 @@ export class TransportFilterComponent implements OnInit, AfterViewInit, OnDestro
     MaterialService.initSelectField(this.selectRef);
 
     this.form = new FormGroup({
-      loadingDate: new FormControl(),
-      dischargeDate: new FormControl(),
+      startLoadingDate: new FormControl(),
+      endLoadingDate: new FormControl(),
       loadingPoint: new FormControl(),
       dischargePoint: new FormControl(),
+      typeCargo: new FormControl(),
+      cargoWeight: new FormControl(),
       typeTransport: new FormControl(),
       amountTransport: new FormControl(),
-      loadCapacity: new FormControl(),
       companyName: new FormControl(),
     });
   }
 
   ngAfterViewInit() {
-    this.loadingDate = MaterialService.initDatepicker(this.loadingRef, this.validateDateInput.bind(this));
-    this.dischargeDate = MaterialService.initDatepicker(this.dischargeRef, this.validateDateInput.bind(this));
+    this.startLoading = MaterialService.initDatepicker(this.startLoadingRef, this.validateDateInput.bind(this));
+    this.endLoading = MaterialService.initDatepicker(this.endLoadingRef, this.validateDateInput.bind(this));
   }
 
   ngOnDestroy() {
-    this.loadingDate.destroy();
-    this.dischargeDate.destroy();
+    this.startLoading.destroy();
+    this.endLoading.destroy();
   }
 
   validateDateInput() {
-    if (!this.loadingDate.date || !this.dischargeDate.date) {
+    if (!this.startLoading.date || !this.endLoading.date) {
       this.isValid = true;
       return;
     }
 
-    this.isValid = this.loadingDate.date < this.dischargeDate.date;
+    this.isValid = this.startLoading.date < this.endLoading.date;
   }
 
   applyFilter() {
     const body = {
-      loadingDate: this.loadingDate.date,
-      dischargeDate: this.dischargeDate.date,
+      startLoadingDate: this.startLoading.date,
+      endLoadingDate: this.endLoading.date,
       loadingPoint: this.form.value.loadingPoint,
       dischargePoint: this.form.value.dischargePoint,
+      typeCargo: this.form.value.typeCargo,
+      cargoWeight: this.form.value.cargoWeight,
       typeTransport: this.form.value.typeTransport,
       amountTransport: this.form.value.amountTransport,
-      loadCapacity: this.form.value.loadCapacity,
       companyName: this.form.value.companyName,
     };
     this.onFilter.emit(body);
+  }
+
+  openFilter() {
+    this.filterBlock ? this.filterBlock = false : this.filterBlock = true;
   }
 
   clearFilter(): void {

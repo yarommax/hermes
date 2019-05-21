@@ -3,7 +3,6 @@ import { Document } from 'mongoose';
 export interface CargoEntity extends Document {
   startLoadingDate: Date;
   endLoadingDate: Date;
-  dischargeDate: Date;
   loadingPoint: string;
   dischargePoint: string;
 
@@ -20,4 +19,8 @@ export interface CargoEntity extends Document {
   contactEmail: string;
   contactSkype: string;
   contactTelephone: string;
+
+  timeStamp: Date;
+  userStamp: string;
+  userId?: object;
 }

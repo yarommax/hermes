@@ -34,7 +34,7 @@
                     </li>
                     <li routerLinkActive="active">
                       <div class="logout-button">
-                        <a *ngIf="userName;"
+                        <a *ngIf="userName; else registration"
                            (click)="logout()"
                         ><i class="fas fa-sign-out-alt"></i>
                           Logout</a>
@@ -65,10 +65,10 @@
           <div class="col l6">
             <ul class="center-align">
               <li class="waves-effect waves-green">
-                <a routerLink="/cargo">List of load</a>
+                <a routerLink="/cargo">List of cargo</a>
               </li>
               <li class="waves-effect waves-green">
-                <a routerLink="/cargo/new">Add a transport</a>
+                <a routerLink="/cargo/new">Add a cargo</a>
               </li>
             </ul>
           </div>
@@ -132,4 +132,7 @@
 
 <ng-template #login>
   <a routerLink="/login">Login</a>
+</ng-template>
+<ng-template #registration>
+  <a routerLink="/register">Registration</a>
 </ng-template>

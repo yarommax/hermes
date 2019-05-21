@@ -11,7 +11,6 @@ import { MaterialService } from '../etc/material.service';
 })
 export class AuthService {
   private token = null;
-  private user: User;
 
   constructor(private httpClient: HttpClient,
               private router: Router) {}
@@ -33,6 +32,10 @@ export class AuthService {
           },
         ),
       );
+  }
+
+  getUserInfo(): Observable<User> {
+    return this.httpClient.get<User>('api/auth/user');
   }
 
   setToken(token: string): void {
