@@ -16,7 +16,7 @@ export class TransportService {
   }
 
   async getAllTransport() {
-    return await this.transportModel.find({});
+    return await this.transportModel.find({}).sort('-timeStamp');
   }
 
   async getUserTransport(userId) {

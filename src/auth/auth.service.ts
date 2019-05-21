@@ -25,7 +25,6 @@ export class AuthService {
       password: bcrypt.hashSync(password, salt),
       companyName: user.companyName,
       contactPersonName: user.contactPersonName,
-      contactEmail: user.contactEmail,
       contactSkype: user.contactSkype,
       contactTelephone: user.contactTelephone,
     });
