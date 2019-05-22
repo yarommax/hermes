@@ -1,8 +1,9 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MaterialDatePicker, MaterialService } from '../../shared/etc/material.service';
-import { Transport } from '../../shared/interfaces';
+import { Transport, User } from '../../shared/interfaces';
 import { TransportService } from '../../shared/services/transport.service';
+import { AuthService } from '../../shared/services/auth.service';
 
 @Component({
   selector: 'app-transport-form',
@@ -21,11 +22,11 @@ export class TransportFormComponent implements OnInit, AfterViewInit, OnDestroy 
   loadingDate: MaterialDatePicker;
   dischargeDate: MaterialDatePicker;
 
-  constructor(private transportService: TransportService) { }
+  constructor(private transportService: TransportService,
+              private authService: AuthService) { }
 
   ngOnInit() {
     MaterialService.initSelectField(this.selectRef);
-
     this.form = new FormGroup({
       loadingDate: new FormControl(null),
       dischargeDate: new FormControl(null),
@@ -40,6 +41,24 @@ export class TransportFormComponent implements OnInit, AfterViewInit, OnDestroy 
       contactSkype: new FormControl(null),
       contactTelephone: new FormControl(null),
     });
+    this.getUserInfo();
+  }
+
+  async getUserInfo() {
+     await this.authService.getUserInfo().subscribe(res => {
+        this.patchForm(res);
+     });
+  }
+
+  patchForm(res) {
+    this.form.patchValue({
+      companyName: res.companyName,
+      contactPersonName: res.contactPersonName,
+      contactEmail: res.email,
+      contactSkype: res.contactSkype,
+      contactTelephone: res.contactTelephone,
+    });
+    MaterialService.updateTextInputs();
   }
 
   ngOnDestroy() {

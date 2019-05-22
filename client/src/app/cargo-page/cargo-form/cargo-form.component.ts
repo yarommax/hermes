@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Cargo } from '../../shared/interfaces';
 import { MaterialDatePicker, MaterialService } from '../../shared/etc/material.service';
 import { CargoService } from '../../shared/services/cargo.service';
+import { AuthService } from '../../shared/services/auth.service';
 
 @Component({
   selector: 'app-cargo-form',
@@ -21,7 +22,8 @@ export class CargoFormComponent implements OnInit, AfterViewInit, OnDestroy {
   endLoading: MaterialDatePicker;
   obs$;
 
-  constructor(private cargoService: CargoService) { }
+  constructor(private cargoService: CargoService,
+              private authService: AuthService) { }
 
   ngOnInit() {
     MaterialService.initSelectField(this.selectRef);
@@ -44,6 +46,24 @@ export class CargoFormComponent implements OnInit, AfterViewInit, OnDestroy {
       contactSkype: new FormControl(null),
       contactTelephone: new FormControl(null),
     });
+    this.getUserInfo();
+  }
+
+  async getUserInfo() {
+    await this.authService.getUserInfo().subscribe(res => {
+      this.patchForm(res);
+    });
+  }
+
+  patchForm(res) {
+    this.form.patchValue({
+      companyName: res.companyName,
+      contactPersonName: res.contactPersonName,
+      contactEmail: res.email,
+      contactSkype: res.contactSkype,
+      contactTelephone: res.contactTelephone,
+    });
+    MaterialService.updateTextInputs();
   }
 
   ngOnDestroy() {

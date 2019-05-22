@@ -75,6 +75,15 @@
         <p>Posted at: {{c.timeStamp | date: 'dd/MM/yyyy HH:mm'}} </p>
         <p> / by <span class="bold">{{c.userStamp}}</span></p>
         <p> User id: {{c.userId}}</p>
+
+      </div>
+      <div class="offerTransport">
+        <span><a (click)="makeOffer()">Предложить транспорт</a></span>
+        <ul *ngIf="showOffer">
+          <li *ngFor="let car of myCar">
+            {{car._id}}
+          </li>
+        </ul>
       </div>
 
     </div>

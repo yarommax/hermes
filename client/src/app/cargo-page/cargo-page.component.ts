@@ -11,6 +11,15 @@ import { CargoService } from '../shared/services/cargo.service';
 export class CargoPageComponent implements OnInit {
   cargos$: Observable<Cargo[]>;
   filterBlock = false;
+  showOffer = false;
+
+  // mock transport
+  myCar = [
+    {_id: '124542563236'},
+    {_id: '124542563236'},
+    {_id: '124542563236'},
+    {_id: '124542563236'},
+  ];
 
   constructor(private cargoService: CargoService) { }
 
@@ -28,5 +37,10 @@ export class CargoPageComponent implements OnInit {
 
   openFilter() {
     this.filterBlock ? this.filterBlock = false : this.filterBlock = true;
+  }
+
+  makeOffer() {
+    this.showOffer ? this.showOffer = false : this.showOffer = true;
+    console.log();
   }
 }
