@@ -2,7 +2,7 @@
   "name": "hermes-be",
   "version": "0.0.1",
   "description": "",
-  "author": "",
+  "author": "Maksim Maliukevich",
   "license": "MIT",
   "scripts": {
     "client": "npm run start --prefix client",

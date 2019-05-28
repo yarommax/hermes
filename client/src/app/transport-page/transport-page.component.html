@@ -67,6 +67,7 @@
       </div>
 
       <div class="transport-card-stamp">
+        <a [routerLink]="['/transport/'+ car._id]">open</a>
         <p>Posted at: {{car.timeStamp | date: 'dd/MM/yyyy HH:mm'}} </p>
         <p> / by <span class="bold">{{car.userStamp}}</span></p>
         <p> User id: {{car.userId}}</p>

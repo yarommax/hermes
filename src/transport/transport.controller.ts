@@ -38,15 +38,14 @@ export class TransportController {
     return await this.transportService.getUserTransport(req.user._id);
   }
 
-  // @ApiOperation({ title: 'Get specific car' })
-  // @ApiCreatedResponse({ description: 'Get specific car by her id' })
-  // @ApiBearerAuth()
-  // @Get('/:id')
-  // @UseGuards(AuthGuard())
-  // async getTransportById(@Param() params) {
-  //   // переписать название эндпоинта
-  //   return await this.transportService.getById(params.id);
-  // }
+  @ApiOperation({ title: 'Get specific car' })
+  @ApiCreatedResponse({ description: 'Get specific car by her id' })
+  @ApiBearerAuth()
+  @Get(':id')
+  @UseGuards(AuthGuard())
+  async getTransportById(@Param('id') id) {
+    return await this.transportService.getById(id);
+  }
 
   @ApiOperation({ title: 'Fetch filtered transport' })
   @ApiCreatedResponse({ description: 'Fetch filtered transport' })
