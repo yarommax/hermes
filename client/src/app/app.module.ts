@@ -21,6 +21,7 @@ import { TransportFilterComponent } from './transport-page/transport-filter/tran
 import { CargoFilterComponent } from './cargo-page/cargo-filter/cargo-filter.component';
 import { CargoFormComponent } from './cargo-page/cargo-form/cargo-form.component';
 import { AcCargoPageComponent } from './account/ac-cargo-page/ac-cargo-page.component';
+import { TransportComponent } from './transport-page/transport/transport.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { AcCargoPageComponent } from './account/ac-cargo-page/ac-cargo-page.comp
     CargoFormComponent,
     CargoFilterComponent,
     AcCargoPageComponent,
+    TransportComponent,
   ],
   imports: [
     BrowserModule,

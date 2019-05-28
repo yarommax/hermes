@@ -11,6 +11,7 @@ export interface User {
 
 export interface Transport {
   // time and place
+  _id?: string;
   loadingDate: Date;
   dischargeDate: Date;
   loadingPoint: string;

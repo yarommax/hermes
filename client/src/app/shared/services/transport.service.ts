@@ -17,6 +17,10 @@ export class TransportService {
     return this.httpClient.post<Transport>('/api/transport', body);
   }
 
+  getCarById(id): Observable<Transport> {
+    return this.httpClient.get<Transport>(`/api/transport/${id}`);
+  }
+
   fetchUserTransport(): Observable<Transport[]> {
     return this.httpClient.get<Transport[]>('/api/transport/my');
   }
