@@ -1,4 +1,4 @@
 export default {
-  host: process.env.APP_HOST || 'http://localhost',
-  port: process.env.APP_PORT || 3000,
+  host: process.env.HOST || 'http://localhost',
+  port: process.env.PORT || 3000,
 };
