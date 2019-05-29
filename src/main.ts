@@ -5,10 +5,7 @@ import { ConfigService } from 'nestjs-config';
 import * as bodyParser from 'body-parser';
 import * as helmet from 'helmet';
 import morgan = require('morgan');
-import { join } from 'path';
 import * as express from 'express';
-
-const CLIENT_FILES = join(__dirname, '..', '..', 'client', 'dist');
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -28,8 +25,7 @@ async function bootstrap() {
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(morgan('dev'));
   app.use(helmet());
-  app.use(express.static(CLIENT_FILES));
-
+  app.use(express.static('client/dist/client'));
   await app.listen(config.get('app.port'));
 }
 bootstrap();
