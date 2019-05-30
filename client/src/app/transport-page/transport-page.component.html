@@ -1,5 +1,5 @@
 <div class="container">
-  <button class="btn-flat" (click)="openFilter()"> {{ !filterBlock? 'Open filter': 'Hide filter' }}</button>
+  <button class="waves-effect waves-light btn open-filter" (click)="openFilter()"> {{ !filterBlock? 'Open filter': 'Hide filter' }} <i class="fas fa-filter"></i></button>
   <app-transport-filter
     *ngIf="filterBlock"
     (onFilter)="applyFilter($event)"
@@ -41,7 +41,7 @@
 
         <div class="transport-card">
           <h6>
-            <i class="fas fa-truck-moving"></i> Transport type:
+            <i class="fas fa-truck-moving"></i> Transport:
           </h6>
           <p>Transport type: <br>
             <span class="bold">{{car.typeTransport}}</span>

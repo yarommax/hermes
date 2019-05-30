@@ -1,0 +1,49 @@
+.transport-data-field {
+  margin: 10px 30px 10px 30px;
+  padding: 20px 20px 10px 20px;
+}
+.main-info {
+  overflow:hidden;
+}
+.transport-card {
+  display: inline-block;
+  border: 1px solid #e7e7e7;
+  padding: 10px;
+  font-size: 12px;
+  float: left;
+  height: 200px;
+}
+
+.transport-card h6 {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+.transport-card p {
+  font-size: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 180px;
+}
+
+.transport-card .bold {
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.table-card-header {
+  font-size: 16px;
+  font-weight: bold;
+}
+.transport-card-stamp {
+  display: block;
+}
+
+.transport-card-stamp p{
+  display: inline-block;
+  margin: 0;
+  padding: 0 5px;
+  font-size: 10px;
+  vertical-align: bottom;
+}

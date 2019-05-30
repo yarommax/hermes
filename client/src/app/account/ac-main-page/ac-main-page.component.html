@@ -1,15 +1,19 @@
-<div class="container">
-    <h1>Dashboard</h1>
+<section class="account-info">
+  <div class="info-table">
+    <h3>Dashboard:</h3>
     <table class="statistics-table">
       <thead>
       <tr>
         <th>Amount of my cars:</th>
+        <th>Amount of my cargos:</th>
       </tr>
       </thead>
       <tbody>
       <tr>
-        <td>{{amount}}</td>
+        <td class="bold" *ngIf="cars$ | async as transport">{{transport.length}}</td>
+        <td class="bold" *ngIf="cargos$| async as cargos">{{cargos.length}}</td>
       </tr>
       </tbody>
     </table>
-</div>
+  </div>
+</section>

@@ -1,5 +1,5 @@
 <div class="container">
-  <button class="btn-flat" (click)="openFilter()"> {{ !filterBlock? 'Open filter': 'Hide filter' }}</button>
+  <button class="waves-effect waves-light btn open-filter" (click)="openFilter()"> {{ !filterBlock? 'Open filter': 'Hide filter' }} <i class="fas fa-filter"></i></button>
   <app-cargo-filter
     *ngIf="filterBlock"
     (onFilter)="applyFilter($event)"

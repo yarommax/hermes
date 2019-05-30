@@ -1,3 +1,11 @@
+.account-info {
+  margin: 10px;
+}
+
+.info-table {
+  display: inline-block;
+}
+
 .statistics-table {
   margin: 10px;
 }

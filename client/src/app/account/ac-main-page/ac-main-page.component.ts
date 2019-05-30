@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Transport } from '../../shared/interfaces';
+import {Component, OnInit} from '@angular/core';
 import { TransportService } from '../../shared/services/transport.service';
+import {CargoService} from '../../shared/services/cargo.service';
 
 @Component({
   selector: 'app-ac-main-page',
@@ -8,22 +8,22 @@ import { TransportService } from '../../shared/services/transport.service';
   styleUrls: ['./ac-main-page.component.css'],
 })
 export class AcMainPageComponent implements OnInit {
-  myTransport: Transport[];
-  amount;
+  cars$;
+  cargos$;
 
-  constructor(private transportService: TransportService) { }
+  constructor(private transportService: TransportService,
+              private cargoService: CargoService) { }
 
   ngOnInit() {
     this.getMyTransport();
+    this.getMyCargos();
   }
 
   getMyTransport() {
-    let obs$;
-    obs$ = this.transportService.fetchUserTransport();
-    obs$.subscribe((res) => {
-      this.myTransport = res;
-      this.amount = res.length;
-    });
+    this.cars$ = this.transportService.fetchUserTransport();
+  }
+  getMyCargos() {
+    this.cargos$ = this.cargoService.fetchUserCargo();
   }
 
 }

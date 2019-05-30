@@ -1,3 +1,10 @@
+.open-filter {
+  margin-top: 20px;
+}
+.open-filter i {
+  color: white;
+}
+
 .fas {
   font-size: 16px;
   color: black;
