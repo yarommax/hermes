@@ -27,6 +27,7 @@
 .transport-data-field {
   margin: 10px 30px 10px 30px;
   padding: 20px 20px 10px 20px;
+  max-width: 600px;
 }
 .main-info {
   overflow:hidden;
@@ -38,6 +39,9 @@
   font-size: 12px;
   float: left;
   height: 200px;
+}
+.transport-card:last-child {
+  width: 210px;
 }
 
 .transport-card h6 {
