@@ -11,7 +11,7 @@
 
   <div class="cargo-data-table" *ngIf="cargos.length !==0; else empty">
 
-    <div class="cargo-data-field card-panel hoverable" *ngFor="let c of cargos">
+    <div class="cargo-data-field card-panel" *ngFor="let c of cargos">
 
       <div class="main-info">
         <div class="cargo-card">
@@ -61,7 +61,7 @@
 
         <div class="cargo-card">
           <h6>
-            <i class="fas fa-info-circle"></i> Company info:
+            <i class="fas fa-info-circle"></i> Company:
           </h6>
           <p>Company: <span class="bold">{{c.companyName}}</span></p>
           <p>Contact person: <span class="bold">{{c.contactPersonName}}</span></p>
@@ -71,19 +71,13 @@
         </div>
       </div>
 
-      <div class="cargo-card-stamp">
-        <p>Posted at: {{c.timeStamp | date: 'dd/MM/yyyy HH:mm'}} </p>
-        <p> / by <span class="bold">{{c.userStamp}}</span></p>
-        <p> User id: {{c.userId}}</p>
-
-      </div>
-      <div class="offerTransport">
-        <span><a (click)="makeOffer()">Предложить транспорт</a></span>
-        <ul *ngIf="showOffer">
-          <li *ngFor="let car of myCar">
-            {{car._id}}
-          </li>
-        </ul>
+      <div class="cargo-controls">
+        <div class="controls">
+          <a class="open-card hoverable" [routerLink]="['/cargo/'+ c._id]">More info</a>
+        </div>
+        <div class="cargo-card-stamp">
+          <p>Posted at: {{c.timeStamp | date: 'dd.MM.yyyy HH:mm'}} by <span class="bold">{{c.userStamp}}</span></p>
+        </div>
       </div>
 
     </div>

@@ -14,6 +14,9 @@
   margin: 0;
   padding: 0;
 }
+.cargo-data-wrapper {
+  margin: 15px 55px 15px 55px;
+}
 
 .cargo-data-table {
   display: flex;
@@ -25,11 +28,12 @@
 }
 
 .cargo-data-field {
-  margin: 10px 30px 10px 30px;
-  padding: 20px 20px 10px 20px;
+  margin: 10px 10px 10px 10px;
+  padding: 15px 15px 10px 15px;
 }
 .main-info {
   overflow:hidden;
+  width: 600px;
 }
 .cargo-card {
   display: inline-block;
@@ -37,7 +41,15 @@
   padding: 10px;
   font-size: 12px;
   float: left;
-  height: 200px;
+  height: 160px;
+  width: 150px;
+}
+
+.cargo-card:first-child {
+  width: 100px;
+}
+.cargo-card:last-child {
+  width: 200px;
 }
 
 .cargo-card h6 {
@@ -62,16 +74,32 @@
   font-size: 16px;
   font-weight: bold;
 }
-.cargo-card-stamp {
-  display: block;
+
+/* stamp under each card*/
+.cargo-controls {
+  font-size: 10px;
+  margin-top: 5px;
+}
+.controls {
+  display: inline-block;
+  float: left;
+}
+.open-card {
+  background-color: #26a69a;
+  border-radius: 2px;
+  color: #ffffff;
+  padding: 3px 5px 3px 5px;
+  margin-top: 5px;
 }
 
-.cargo-card-stamp p{
+.cargo-card-stamp {
   display: inline-block;
+  float: right;
+}
+.cargo-card-stamp p {
   margin: 0;
   padding: 0 5px;
   font-size: 10px;
-  vertical-align: bottom;
 }
 
 

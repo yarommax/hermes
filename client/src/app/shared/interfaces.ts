@@ -35,6 +35,7 @@ export interface Transport {
 }
 
 export interface Cargo {
+  _id?: string;
   startLoadingDate: Date;
   endLoadingDate: Date;
   loadingPoint: string;
