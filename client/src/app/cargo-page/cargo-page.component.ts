@@ -13,14 +13,6 @@ export class CargoPageComponent implements OnInit {
   filterBlock = false;
   showOffer = false;
 
-  // mock transport
-  myCar = [
-    {_id: '124542563236'},
-    {_id: '124542563236'},
-    {_id: '124542563236'},
-    {_id: '124542563236'},
-  ];
-
   constructor(private cargoService: CargoService) { }
 
   ngOnInit() {
@@ -37,10 +29,5 @@ export class CargoPageComponent implements OnInit {
 
   openFilter() {
     this.filterBlock ? this.filterBlock = false : this.filterBlock = true;
-  }
-
-  makeOffer() {
-    this.showOffer ? this.showOffer = false : this.showOffer = true;
-    console.log();
   }
 }

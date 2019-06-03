@@ -1,49 +1,45 @@
-.transport-data-field {
-  margin: 10px 30px 10px 30px;
-  padding: 20px 20px 10px 20px;
-}
-.main-info {
-  overflow:hidden;
-}
-.transport-card {
-  display: inline-block;
-  border: 1px solid #e7e7e7;
-  padding: 10px;
-  font-size: 12px;
-  float: left;
-  height: 200px;
+p {
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
 }
 
-.transport-card h6 {
-  padding-bottom: 10px;
-  border-bottom: 1px solid #e7e7e7;
+.transport {
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
+
+.main-info-wrapper {
+  background-image: url(../../../assets/hanseatic-freight-contor_land-detail-91f7bf47.jpg);
+  background-size: cover;
+  background-position: center center;
+  z-index: -10;
+}
+
+.main-info {
+  background-color: rgba(255, 255, 255, 0.85);
+  height: 100%;
+}
+
+.info-header {
+  padding: 10px;
+  text-align: center;
+}
+
+.transport-card {
+  border: 1px solid #eaeaea;
+  border-bottom: none;
+  padding: 10px 10px 10px 15px;
+}
+.transport-card:last-child {
+  border-bottom: 1px solid #eaeaea;
+}
+
+/*.transport-card:hover {*/
+/*  border-left: 1px solid #37b256;*/
+/*  background: #f1f1f1;*/
+/*}*/
 
 .transport-card p {
-  font-size: 10px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 180px;
-}
-
-.transport-card .bold {
-  font-weight: bold;
-  font-size: 12px;
-}
-
-.table-card-header {
-  font-size: 16px;
-  font-weight: bold;
-}
-.transport-card-stamp {
-  display: block;
-}
-
-.transport-card-stamp p{
-  display: inline-block;
-  margin: 0;
-  padding: 0 5px;
-  font-size: 10px;
-  vertical-align: bottom;
+  padding-bottom: 3px;
 }

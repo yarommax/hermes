@@ -14,23 +14,24 @@
   margin: 0;
   padding: 0;
 }
-
+.transport-data-wrapper {
+  margin: 15px 20px 15px 20px;
+}
 .transport-data-table {
   display: flex;
   flex-direction: row;
-  margin-top: 15px;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
 }
 
 .transport-data-field {
-  margin: 10px 30px 10px 30px;
-  padding: 20px 20px 10px 20px;
-  max-width: 600px;
+  margin: 10px 10px 10px 10px;
+  padding: 15px 15px 10px 15px;
 }
 .main-info {
   overflow:hidden;
+  width: 600px;
 }
 .transport-card {
   display: inline-block;
@@ -38,11 +39,17 @@
   padding: 10px;
   font-size: 12px;
   float: left;
-  height: 200px;
+  height: 150px;
+  width: 150px;
+}
+
+.transport-card:first-child {
+  width: 100px;
 }
 .transport-card:last-child {
-  width: 210px;
+  width: 200px;
 }
+
 
 .transport-card h6 {
   padding-bottom: 10px;
@@ -66,17 +73,45 @@
   font-size: 16px;
   font-weight: bold;
 }
-.transport-card-stamp {
-  display: block;
+
+/* stamp under each card*/
+.transport-controls {
+  font-size: 10px;
+  margin-top: 5px;
+}
+.controls {
+  display: inline-block;
+  float: left;
+}
+.open-card {
+  background-color: #26a69a;
+  border-radius: 2px;
+  color: #ffffff;
+  padding: 3px 5px 3px 5px;
+  margin-top: 5px;
 }
 
-.transport-card-stamp p{
+.transport-card-stamp {
   display: inline-block;
+  float: right;
+}
+.transport-card-stamp p {
   margin: 0;
   padding: 0 5px;
   font-size: 10px;
-  vertical-align: bottom;
 }
+
+/*.transport-card-stamp {*/
+/*  display: block;*/
+/*}*/
+
+/*.transport-card-stamp p{*/
+/*  display: inline-block;*/
+/*  margin: 0;*/
+/*  padding: 0 5px;*/
+/*  font-size: 10px;*/
+/*  vertical-align: bottom;*/
+/*}*/
 
 
 

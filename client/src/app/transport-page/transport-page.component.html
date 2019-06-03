@@ -11,7 +11,7 @@
 
   <div class="transport-data-table" *ngIf="transports.length !==0; else empty">
 
-    <div class="transport-data-field card-panel hoverable" *ngFor="let car of transports">
+    <div class="transport-data-field card-panel" *ngFor="let car of transports">
 
       <div class="main-info">
         <div class="transport-card">
@@ -43,35 +43,36 @@
           <h6>
             <i class="fas fa-truck-moving"></i> Transport:
           </h6>
-          <p>Transport type: <br>
+          <p>Transport type:
             <span class="bold">{{car.typeTransport}}</span>
           </p>
-          <p>Amount of cars: <br>
+          <p>Amount of cars:
             <span class="bold">{{car.amountTransport}}</span>
           </p>
-          <p>Load capacity(ton): <br>
+          <p>Load capacity(ton):
             <span class="bold">{{car.loadCapacity}}</span>
           </p>
         </div>
 
         <div class="transport-card">
           <h6>
-            <i class="fas fa-info-circle"></i> Company info:
+            <i class="fas fa-info-circle"></i> Company:
           </h6>
           <p>Company: <span class="bold">{{car.companyName}}</span></p>
-          <p>Contact person: <span class="bold">{{car.contactPersonName}}</span></p>
           <p>Email: <span class="bold">{{car.contactEmail}}</span></p>
-          <p>Skype: <span class="bold">{{car.contactSkype}}</span></p>
           <p>Telephone: <span class="bold">{{car.contactTelephone}}</span></p>
         </div>
       </div>
 
-      <div class="transport-card-stamp">
-        <a [routerLink]="['/transport/'+ car._id]">open</a>
-        <p>Posted at: {{car.timeStamp | date: 'dd/MM/yyyy HH:mm'}} </p>
-        <p> / by <span class="bold">{{car.userStamp}}</span></p>
-        <p> User id: {{car.userId}}</p>
+      <div class="transport-controls">
+        <div class="controls">
+          <a class="open-card hoverable" [routerLink]="['/transport/'+ car._id]">More info</a>
+        </div>
+        <div class="transport-card-stamp">
+          <p>Posted at: {{car.timeStamp | date: 'dd.MM.yyyy HH:mm'}} by <span class="bold">{{car.userStamp}}</span></p>
+        </div>
       </div>
+
 
     </div>
 

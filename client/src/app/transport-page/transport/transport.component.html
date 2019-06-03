@@ -1,67 +1,77 @@
-<div class="container">
+<div class="container transport">
   <div class="row">
-    <div class="transport-data-field" *ngIf="car$ | async as car">
-      <div class="main-info">
-        <div class="transport-card">
-          <h6>
-            <i class="fas fa-calendar-alt"></i>
-            Date
-          </h6>
-          <p>Loading: <br>
-            <span class="bold">{{car.loadingDate | date: 'dd/MM/yyyy'}}</span>
-          </p>
-          <p>Discharge: <br>
-            <span class="bold">{{car.dischargeDate | date: 'dd/MM/yyyy'}}</span>
-          </p>
-        </div>
+    <div class="col l5" *ngIf="car$ | async as car">
+      <div class="main-info-wrapper">
+        <div class="main-info">
+          <div class="transport-card">
+            <h5 class="info-header">General information:</h5>
+            <p class="bold">
+              <i class="fas fa-calendar-alt"></i>
+              Date:
+            </p>
+            <p>Loading day - <span class="bold">{{car.loadingDate | date: 'dd.MM.yyyy'}}</span>
+            </p>
+            <p>Discharge day - <span class="bold">{{car.dischargeDate | date: 'dd.MM.yyyy'}}</span>
+            </p>
+          </div>
 
-        <div class="transport-card">
-          <h6>
-            <i class="fas fa-map-marked-alt"></i> Location:
-          </h6>
-          <p>Loading point: <br>
-            <span class="bold">{{car.loadingPoint}}</span>
-          </p>
-          <p>Discharge point: <br>
-            <span class="bold">{{car.dischargePoint}}</span>
-          </p>
-        </div>
+          <div class="transport-card">
+            <p class="bold">
+              <i class="fas fa-map-marked-alt"></i> Location:
+            </p>
+            <p>Loading point:
+              <span class="bold">{{car.loadingPoint}}</span>
+            </p>
+            <p>Discharge point:
+              <span class="bold">{{car.dischargePoint}}</span>
+            </p>
+          </div>
 
-        <div class="transport-card">
-          <h6>
-            <i class="fas fa-truck-moving"></i> Transport type:
-          </h6>
-          <p>Transport type: <br>
-            <span class="bold">{{car.typeTransport}}</span>
-          </p>
-          <p>Amount of cars: <br>
-            <span class="bold">{{car.amountTransport}}</span>
-          </p>
-          <p>Load capacity(ton): <br>
-            <span class="bold">{{car.loadCapacity}}</span>
-          </p>
-        </div>
+          <div class="transport-card">
+            <p class="bold">
+              <i class="fas fa-truck-moving"></i> Transport:
+            </p>
+            <p>Transport type:
+              <span class="bold">{{car.typeTransport}}</span>
+            </p>
+            <p>Amount of cars:
+              <span class="bold">{{car.amountTransport}}</span>
+            </p>
+            <p>Load capacity(ton):
+              <span class="bold">{{car.loadCapacity}}</span>
+            </p>
+          </div>
 
-        <div class="transport-card">
-          <h6>
-            <i class="fas fa-info-circle"></i> Company info:
-          </h6>
-          <p>Company: <span class="bold">{{car.companyName}}</span></p>
-          <p>Contact person: <span class="bold">{{car.contactPersonName}}</span></p>
-          <p>Email: <span class="bold">{{car.contactEmail}}</span></p>
-          <p>Skype: <span class="bold">{{car.contactSkype}}</span></p>
-          <p>Telephone: <span class="bold">{{car.contactTelephone}}</span></p>
-        </div>
-      </div>
+          <div class="transport-card">
+            <p class="bold">
+              <i class="fas fa-info-circle"></i> Company info:
+            </p>
+            <p>Company: <span class="bold">{{car.companyName}}</span></p>
+            <p>Contact person: <span class="bold">{{car.contactPersonName}}</span></p>
+            <p>Email: <span class="bold">{{car.contactEmail}}</span></p>
+            <p>Skype: <span class="bold">{{car.contactSkype}}</span></p>
+            <p>Telephone: <span class="bold">{{car.contactTelephone}}</span></p>
+          </div>
 
-      <div class="transport-card-stamp">
-        <a [routerLink]="['/transport/'+ car._id]">open</a>
-        <p>Posted at: {{car.timeStamp | date: 'dd/MM/yyyy HH:mm'}} </p>
-        <p> / by <span class="bold">{{car.userStamp}}</span></p>
-        <p> User id: {{car.userId}}</p>
+          <div class="transport-card">
+            <p>Posted at: {{car.timeStamp | date: 'dd.MM.yyyy HH:mm'}} </p>
+            <p>By user: <span class="bold">{{car.userStamp}}</span></p>
+            <p>User id: {{car.userId}}</p>
+          </div>
+        </div>
       </div>
 
     </div>
+
+    <div class="transport-controls col l7">
+      <h5 class="info-header">Offer my cargo:</h5>
+      <ul class="tabs">
+        <li class="tab active"><a href="#test1">Offer cargo</a></li>
+        <li class="tab"><a href="#test1">Send mail</a></li>
+      </ul>
+      <button class="waves-effect waves-light btn open-filter">Make an offer</button>
+    </div>
+
   </div>
 </div>
 

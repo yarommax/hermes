@@ -15,6 +15,7 @@ import { AcMainPageComponent } from './account/ac-main-page/ac-main-page.compone
 import { CargoFormComponent } from './cargo-page/cargo-form/cargo-form.component';
 import { AcCargoPageComponent } from './account/ac-cargo-page/ac-cargo-page.component';
 import { TransportComponent } from './transport-page/transport/transport.component';
+import {CargoComponent} from './cargo-page/cargo/cargo.component';
 
 const routes: Routes = [
   {
@@ -28,6 +29,7 @@ const routes: Routes = [
       { path: 'transport/:id', canActivate: [AuthGuard], component: TransportComponent },
       { path: 'cargo', canActivate: [AuthGuard], component: CargoPageComponent },
       { path: 'cargo/new', canActivate: [AuthGuard], component: CargoFormComponent },
+      { path: 'cargo/:id', canActivate: [AuthGuard], component: CargoComponent },
     ],
   },
   {
