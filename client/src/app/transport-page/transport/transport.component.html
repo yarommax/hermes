@@ -64,12 +64,42 @@
     </div>
 
     <div class="transport-controls col l7">
-      <h5 class="info-header">Offer my cargo:</h5>
-      <ul class="tabs">
-        <li class="tab active"><a href="#test1">Offer cargo</a></li>
-        <li class="tab"><a href="#test1">Send mail</a></li>
-      </ul>
-      <button class="waves-effect waves-light btn open-filter">Make an offer</button>
+      <h5 class="info-header">List of my cargo:</h5>
+      <form>
+        <table *ngIf="cargos$ | async as cargos; else empty">
+          <tr>
+            <th></th>
+            <th>Date</th>
+            <th>Location</th>
+            <th>Info</th>
+          </tr>
+
+          <tr *ngFor="let c of cargos">
+            <td style="width: 20px;">
+              <label>
+                <input type="radio" name="group1" (click)="onSelectCargo(c)" class="with-gap" />
+                <span></span>
+              </label>
+            </td>
+            <td>{{c.startLoadingDate  | date: 'dd/MM/yyyy'}} - <br>
+              {{c.endLoadingDate  | date: 'dd/MM/yyyy'}}</td>
+            <td>{{c.loadingPoint}} - {{c.dischargePoint}}</td>
+            <td>Weight: {{c.cargoWeight}} ton <br>
+              Volume: {{c.cargoVolume}} m^3 <br>
+              Type: {{c.typeCargo}}</td>
+
+
+          </tr>
+        </table>
+        <ng-template #empty>
+          <p>You don't have any cargo yet.</p>
+        </ng-template>
+      </form>
+
+      <button
+        [disabled]="!selectedCargo"
+        class="waves-effect waves-light btn open-filter"
+        style="margin-top: 15px;" (click)="onOfferCargo()">Make an offer</button>
     </div>
 
   </div>

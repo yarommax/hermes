@@ -59,3 +59,8 @@ export interface Cargo {
   userStamp?: string;
   userId?: string;
 }
+
+export interface OfferCargo {
+  carId: string;
+  cargoId: string;
+}

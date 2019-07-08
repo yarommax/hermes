@@ -17,8 +17,12 @@ p {
 }
 
 .main-info {
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: rgba(255, 255, 255, 0.80);
   height: 100%;
+}
+
+.transport-controls {
+  padding-left: 30px;
 }
 
 .info-header {
