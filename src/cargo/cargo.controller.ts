@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Req, UseGuards, Res } from '@nestjs/common';
+import { Body, Controller, Get, Post, Req, UseGuards, Res, Render } from '@nestjs/common';
 import { CargoService } from './cargo.service';
 import { ApiBearerAuth, ApiCreatedResponse, ApiOperation, ApiUseTags } from '@nestjs/swagger';
 import { CreateCargoDto } from './interfaces';
@@ -51,6 +51,12 @@ export class CargoController {
   @Get('download')
   downloadApp(@Res() res) {
     res.sendFile(`${__dirname}/test.html`);
+    return;
+  }
+
+  @Get('render')
+  @Render('test')
+  renderPage(@Res() res) {
     return;
   }
 }
