@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Req, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Post, Req, UseGuards, Res } from '@nestjs/common';
 import { CargoService } from './cargo.service';
 import { ApiBearerAuth, ApiCreatedResponse, ApiOperation, ApiUseTags } from '@nestjs/swagger';
 import { CreateCargoDto } from './interfaces';
@@ -46,5 +46,11 @@ export class CargoController {
   @UseGuards(AuthGuard())
   async getFilteredCargo(@Body() filter: TrFilter) {
     return await this.cargoService.getFilteredCargo(filter);
+  }
+
+  @Get('download')
+  downloadApp(@Res() res) {
+    res.sendFile(`${__dirname}/test.html`);
+    return;
   }
 }
